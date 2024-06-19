@@ -1,0 +1,33 @@
+models:
+  City:
+    name: string
+    width: integer nullable
+    length: integer nullable
+    image: string nullable
+    user_id: unsignedInteger
+    softDeletes: true
+    timestamps: true
+    relationships:
+      belongsTo: User
+      belongsToMany: Users
+
+  Setting:
+    name: string
+    value: text
+    softDeletes: true
+    timestamps: true
+
+  Repo:
+    name: string
+    owner: string nullable
+    readme: text nullable
+    json: text nullable
+    error_readme: boolean default:0
+    error_favicon: boolean default:0
+    error_gitignore: boolean default:0
+    error_pages: boolean default:0
+    error_protected: boolean default:0
+    error_cdn: boolean default:0
+    error_pull: boolean default:0
+    softDeletes: true
+    timestamps: true
