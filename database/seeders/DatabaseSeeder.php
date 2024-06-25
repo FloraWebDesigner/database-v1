@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $user = \App\Models\User::factory()->create([
             'first' => 'Adam',
             'last' => 'Thomas',
+            'session_id' => rand(1000000000, 9999999999),
             'github_username' => 'codeadamca',
             'email' => 'thomasadam83@hotmail.com',
             'password' => bcrypt( value: 'password'),

@@ -4,6 +4,8 @@ models:
     width: integer nullable
     length: integer nullable
     image: string nullable
+    date_at: timestamp
+    date_multiplier: unsignedSmallInterger default:1
     user_id: unsignedInteger
     softDeletes: true
     timestamps: true

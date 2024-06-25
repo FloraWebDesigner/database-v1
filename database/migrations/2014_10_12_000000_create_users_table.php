@@ -17,8 +17,13 @@ return new class extends Migration
             $table->string('last');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('github_username');
-            $table->string('password');
+            $table->string('github_username')->nullable();
+            $table->string('github_access_token')->nullable();
+            $table->string('reset_hash')->nullable();
+            $table->string('verify_hash')->nullable();
+            $table->longText('avatar')->nullable();
+            $table->string('password')->nullable();
+            $table->string('session_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
