@@ -49,6 +49,15 @@ class DatabaseSeeder extends Seeder
             ],[
                 'name' => 'BRICKSUM_WORDS',
                 'value' => 'brick, block, plate, tile, slope, wedge, corner, arch, beam, panel, fence, bar, stud, baseplate, grille, pillar',
+            ],[
+                'name' => 'BRICKSUM_PARAGRAPHS_GENERATED',
+                'value' => 0,
+            ],[
+                'name' => 'BRICKSUM_SENTENCES_GENERATED',
+                'value' => 0,
+            ],[
+                'name' => 'BRICKSUM_WORDS_GENERATED',
+                'value' => 0,
             ]
         );
 
