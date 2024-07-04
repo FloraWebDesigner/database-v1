@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $city->users()->save($user);
+        $user->city_id = $city->id;
 
         $city = City::factory()->create([
             'name' => 'Second City',
