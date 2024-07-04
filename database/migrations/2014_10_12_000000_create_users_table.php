@@ -24,6 +24,7 @@ return new class extends Migration
             $table->longText('avatar')->nullable();
             $table->string('password')->nullable();
             $table->string('session_id')->nullable();
+            $table->foreignId('city_id');
             $table->rememberToken();
             $table->timestamps();
         });
