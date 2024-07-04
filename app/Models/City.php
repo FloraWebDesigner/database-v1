@@ -22,6 +22,8 @@ class City extends Model
         'width',
         'length',
         'image',
+        'date_at',
+        'date_multiplier',
         'user_id',
     ];
 
@@ -32,6 +34,7 @@ class City extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'date_at' => 'timestamp',
         'user_id' => 'integer',
     ];
 
@@ -42,6 +45,6 @@ class City extends Model
 
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(Users::class);
+        return $this->belongsToMany(User::class);
     }
 }

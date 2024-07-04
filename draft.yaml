@@ -11,7 +11,7 @@ models:
     timestamps: true
     relationships:
       belongsTo: User
-      belongsToMany: Users
+      belongsToMany: User
 
   Setting:
     name: string

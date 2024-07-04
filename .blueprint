@@ -2,15 +2,15 @@ created:
     - database/factories/CityFactory.php
     - database/factories/SettingFactory.php
     - database/factories/RepoFactory.php
-    - database/migrations/2024_06_18_205941_create_cities_table.php
-    - database/migrations/2024_06_18_205942_create_settings_table.php
-    - database/migrations/2024_06_18_205943_create_repos_table.php
-    - database/migrations/2024_06_18_205944_create_city_users_table.php
+    - database/migrations/2024_07_04_035106_create_cities_table.php
+    - database/migrations/2024_07_04_035107_create_settings_table.php
+    - database/migrations/2024_07_04_035108_create_repos_table.php
+    - database/migrations/2024_07_04_035109_create_city_user_table.php
     - app/Models/City.php
     - app/Models/Setting.php
     - app/Models/Repo.php
 models:
-    User: { first: string, last: string, email: string, email_verified_at: 'timestamp nullable', github_username: string, password: string, remember_token: 'string:100 nullable' }
-    City: { name: string, width: 'integer nullable', length: 'integer nullable', image: 'string nullable defalt:""', user_id: unsignedInteger, softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: User, belongsToMany: Users } }
+    User: { first: string, last: string, email: string, email_verified_at: 'timestamp nullable', github_username: 'string nullable', github_access_token: 'string nullable', reset_hash: 'string nullable', verify_hash: 'string nullable', avatar: 'longtext nullable', password: 'string nullable', session_id: 'string nullable', remember_token: 'string:100 nullable' }
+    City: { name: string, width: 'integer nullable', length: 'integer nullable', image: 'string nullable', date_at: timestamp, date_multiplier: 'unsignedSmallInterger default:1', user_id: unsignedInteger, softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: User, belongsToMany: User } }
     Setting: { name: string, value: text, softdeletes: softDeletes, timestamps: timestamps }
     Repo: { name: string, owner: 'string nullable', readme: 'text nullable', json: 'text nullable', error_readme: 'boolean default:0', error_favicon: 'boolean default:0', error_gitignore: 'boolean default:0', error_pages: 'boolean default:0', error_protected: 'boolean default:0', error_cdn: 'boolean default:0', error_pull: 'boolean default:0', softdeletes: softDeletes, timestamps: timestamps }
