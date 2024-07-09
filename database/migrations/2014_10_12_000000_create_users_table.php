@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('session_id')->nullable();
             $table->foreignId('city_id')->nullable();
+            $table->boolean('admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

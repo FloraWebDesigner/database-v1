@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'github_username' => 'codeadamca',
             'email' => 'thomasadam83@hotmail.com',
             'password' => '$2y$10$1oyAGH/Ffv.O/YPzZtJlR.PdmutrNiR5OAyyV4llUUno6GGR9fMK.',
+            'admin' => 1,
         ]);
 
         // **************************************************
