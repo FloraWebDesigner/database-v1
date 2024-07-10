@@ -9,6 +9,9 @@ use App\Models\User;
 use App\Models\City;
 use App\Models\Setting;
 
+use Carbon\Carbon;
+
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -45,6 +48,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Smart City',
             'width' => '27',
             'length' => '30',
+            'date_at' => Carbon::now(),
+            'date_multiplier' => 1,
+            'image' => '',
             'user_id' => $user,
         ]);
 
@@ -55,6 +61,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Second City',
             'width' => '9',
             'length' => '6',
+            'date_at' => Carbon::now(),
+            'date_multiplier' => 1,
+            'image' => '',
             'user_id' => $user,
         ]);
 
