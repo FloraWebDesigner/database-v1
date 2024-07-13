@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'first' => 'Adam',
             'last' => 'Thomas',
             'session_id' => rand(1000000000, 9999999999),
-            'github_username' => 'codeadamca',
+            'github_username' => '',
             'email' => 'thomasadam83@hotmail.com',
             'password' => '$2y$10$1oyAGH/Ffv.O/YPzZtJlR.PdmutrNiR5OAyyV4llUUno6GGR9fMK.',
             'admin' => 1,

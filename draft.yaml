@@ -2,8 +2,8 @@ models:
   City:
     name: string
     width: integer nullable
-    length: integer nullable
-    image: string nullable
+    height: integer nullable
+    image: longtext nullable
     date_at: timestamp
     date_multiplier: integer default:1
     user_id: integer
@@ -13,11 +13,44 @@ models:
       belongsTo: User
       belongsToMany: User
 
+  Square:
+    x: integer
+    y: integer
+    road: boolean default:0
+    road_rules: text nullable
+    track: boolean default:0
+    track_rules: text nullable
+    type: enum:Ground,Water default:Ground
+    building_id: integer nullable
+    city_id: integer
+    relationships:
+      belongsTo: City, Building
+
+  Building:
+    name: string nullable
+    colour: string nullable
+    set: integer nullable
+    square_id: integer nullable
+    softDeletes: true
+    timestamps: true
+    relationships:
+      belongsTo: Square
+      hasMany: Square
+
   Setting:
     name: string
     value: text
     softDeletes: true
     timestamps: true
+
+  Invite:
+    email: string
+    invite_hash: string nullable
+    city_id: integer
+    user_id: integer
+    timestamps: true
+    relationships:
+      belongsTo: City, User
 
   Repo:
     name: string

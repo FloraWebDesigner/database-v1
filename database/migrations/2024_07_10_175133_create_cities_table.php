@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('width')->nullable();
             $table->integer('length')->nullable();
-            $table->string('image')->nullable();
+            $table->longText('image')->nullable();
             $table->timestamp('date_at');
             $table->integer('date_multiplier')->default(1);
             $table->foreignId('user_id');
