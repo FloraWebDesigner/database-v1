@@ -24,7 +24,7 @@ class CityFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'width' => $this->faker->numberBetween(-10000, 10000),
-            'length' => $this->faker->numberBetween(-10000, 10000),
+            'height' => $this->faker->numberBetween(-10000, 10000),
             'image' => $this->faker->text(),
             'date_at' => $this->faker->dateTime(),
             'date_multiplier' => $this->faker->numberBetween(-10000, 10000),

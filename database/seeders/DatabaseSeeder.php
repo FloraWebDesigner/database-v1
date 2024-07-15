@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
         $city = City::factory()->create([
             'name' => 'Smart City',
             'width' => '27',
-            'length' => '30',
+            'height' => '30',
             'date_at' => Carbon::now(),
             'date_multiplier' => 1,
             'image' => '',
@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
         $city = City::factory()->create([
             'name' => 'Second City',
             'width' => '9',
-            'length' => '6',
+            'height' => '6',
             'date_at' => Carbon::now(),
             'date_multiplier' => 1,
             'image' => '',

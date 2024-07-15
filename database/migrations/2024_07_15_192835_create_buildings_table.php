@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('buildings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('width')->nullable();
-            $table->integer('length')->nullable();
-            $table->longText('image')->nullable();
-            $table->timestamp('date_at');
-            $table->integer('date_multiplier')->default(1);
-            $table->foreignId('user_id');
+            $table->string('name')->nullable();
+            $table->string('colour')->nullable();
+            $table->integer('set')->nullable();
+            $table->foreignId('square_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('buildings');
     }
 };
