@@ -66,3 +66,19 @@ models:
     error_pull: boolean default:0
     softDeletes: true
     timestamps: true
+
+  Colour:
+    name: string
+    rgb: string
+    is_trans: boolean
+    timestamps: true
+    relationships:
+      hasMany: External
+
+  External:
+    name: string
+    source: enum:brickowl,bricklink,ldraw,lego,peeron
+    colour_id: integer
+    timestamps: true
+    relationships:
+      belongsTo: Colour
