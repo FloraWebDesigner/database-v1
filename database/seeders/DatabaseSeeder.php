@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\City;
 use App\Models\Setting;
+use App\Models\Tag;
 
 use Carbon\Carbon;
 
@@ -68,6 +69,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $city->users()->save($user);
+
+        // **************************************************
+        // Tags
+        Tag::factory()->create(['name' => 'city']);
+        Tag::factory()->create(['name' => 'harry potter']);
+        Tag::factory()->create(['name' => 'starwars']);
+        Tag::factory()->create(['name' => 'minecraft']);
+        Tag::factory()->create(['name' => 'marvel']);
 
         // **************************************************
         // Settings

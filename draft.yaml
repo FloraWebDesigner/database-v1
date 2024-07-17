@@ -82,3 +82,29 @@ models:
     timestamps: true
     relationships:
       belongsTo: Colour
+
+  Media:
+    name: string
+    thumbnail: string
+    image: longtext nullable
+    video: string nullable
+    approved: boolean default:0
+    user_id: integer nullable
+    city_id: integer nullable
+    softDeletes: true
+    timestamps: true
+    relationships:
+      belongsTo: User, City
+      belongsToMany: Tag
+
+  MediaDownload:
+    media_id: integer
+    user_id: integer nullable
+    timestamps: true
+    relationships:
+      belongsTo: User, Media
+
+  Tag:
+    name: string
+    relationships:
+      belongsToMany: Media
