@@ -70,7 +70,8 @@ models:
   Colour:
     name: string
     rgb: string
-    is_trans: boolean
+    is_trans: string
+    rebrickable_id: integer nullable
     timestamps: true
     relationships:
       hasMany: External

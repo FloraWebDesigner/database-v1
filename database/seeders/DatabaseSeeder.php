@@ -99,6 +99,9 @@ class DatabaseSeeder extends Seeder
             ],[
                 'name' => 'BRICKSUM_WORDS_GENERATED',
                 'value' => 0,
+            ],[
+                'name' => 'COLOURS_LAST_IMPORT',
+                'value' => 0,
             ]
         );
 

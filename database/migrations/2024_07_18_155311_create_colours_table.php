@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('rgb');
-            $table->boolean('is_trans');
+            $table->string('is_trans');
+            $table->integer('rebrickable_id')->nullable();
             $table->timestamps();
         });
     }

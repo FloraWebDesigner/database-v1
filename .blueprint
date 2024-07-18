@@ -10,19 +10,19 @@ created:
     - database/factories/MediaFactory.php
     - database/factories/MediaDownloadFactory.php
     - database/factories/TagFactory.php
-    - database/migrations/2024_07_17_004542_create_cities_table.php
-    - database/migrations/2024_07_17_004543_create_squares_table.php
-    - database/migrations/2024_07_17_004544_create_buildings_table.php
-    - database/migrations/2024_07_17_004545_create_settings_table.php
-    - database/migrations/2024_07_17_004546_create_invites_table.php
-    - database/migrations/2024_07_17_004547_create_repos_table.php
-    - database/migrations/2024_07_17_004548_create_colours_table.php
-    - database/migrations/2024_07_17_004549_create_externals_table.php
-    - database/migrations/2024_07_17_004550_create_media_table.php
-    - database/migrations/2024_07_17_004551_create_media_downloads_table.php
-    - database/migrations/2024_07_17_004552_create_tags_table.php
-    - database/migrations/2024_07_17_004553_create_city_user_table.php
-    - database/migrations/2024_07_17_004554_create_media_tag_table.php
+    - database/migrations/2024_07_18_155305_create_cities_table.php
+    - database/migrations/2024_07_18_155306_create_squares_table.php
+    - database/migrations/2024_07_18_155307_create_buildings_table.php
+    - database/migrations/2024_07_18_155308_create_settings_table.php
+    - database/migrations/2024_07_18_155309_create_invites_table.php
+    - database/migrations/2024_07_18_155310_create_repos_table.php
+    - database/migrations/2024_07_18_155311_create_colours_table.php
+    - database/migrations/2024_07_18_155312_create_externals_table.php
+    - database/migrations/2024_07_18_155313_create_media_table.php
+    - database/migrations/2024_07_18_155314_create_media_downloads_table.php
+    - database/migrations/2024_07_18_155315_create_tags_table.php
+    - database/migrations/2024_07_18_155316_create_city_user_table.php
+    - database/migrations/2024_07_18_155317_create_media_tag_table.php
     - app/Models/City.php
     - app/Models/Square.php
     - app/Models/Building.php
@@ -42,7 +42,7 @@ models:
     Setting: { name: string, value: text, softdeletes: softDeletes, timestamps: timestamps }
     Invite: { email: string, invite_hash: 'string nullable', city_id: integer, user_id: integer, timestamps: timestamps, relationships: { belongsTo: 'City, User' } }
     Repo: { name: string, owner: 'string nullable', readme: 'text nullable', json: 'text nullable', error_readme: 'boolean default:0', error_favicon: 'boolean default:0', error_gitignore: 'boolean default:0', error_pages: 'boolean default:0', error_protected: 'boolean default:0', error_cdn: 'boolean default:0', error_pull: 'boolean default:0', softdeletes: softDeletes, timestamps: timestamps }
-    Colour: { name: string, rgb: string, is_trans: boolean, timestamps: timestamps, relationships: { hasMany: External } }
+    Colour: { name: string, rgb: string, is_trans: string, rebrickable_id: 'integer nullable', timestamps: timestamps, relationships: { hasMany: External } }
     External: { name: string, source: 'enum:brickowl,bricklink,ldraw,lego,peeron', colour_id: integer, timestamps: timestamps, relationships: { belongsTo: Colour } }
     Media: { name: string, thumbnail: string, image: 'longtext nullable', video: 'string nullable', approved: 'boolean default:0', user_id: 'integer nullable', city_id: 'integer nullable', softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: 'User, City', belongsToMany: Tag } }
     MediaDownload: { media_id: integer, user_id: 'integer nullable', timestamps: timestamps, relationships: { belongsTo: 'User, Media' } }
