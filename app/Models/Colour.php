@@ -19,6 +19,7 @@ class Colour extends Model
         'name',
         'rgb',
         'is_trans',
+        'rebrickable_id',
     ];
 
     /**
@@ -28,7 +29,6 @@ class Colour extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'is_trans' => 'boolean',
     ];
 
     public function externals(): HasMany

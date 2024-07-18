@@ -23,7 +23,8 @@ class ColourFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'rgb' => $this->faker->word(),
-            'is_trans' => $this->faker->boolean(),
+            'is_trans' => $this->faker->word(),
+            'rebrickable_id' => $this->faker->numberBetween(-10000, 10000),
         ];
     }
 }
