@@ -85,6 +85,12 @@ class DatabaseSeeder extends Seeder
                 'name' => 'GITHUB_ACCOUNTS',
                 'value' => 'codeadamca,BrickMMO',
             ],[
+                'name' => 'GITHUB_LAST_IMPORT',
+                'value' => '2024-07-18 13:25:36',
+            ],[
+                'name' => 'GITHUB_REPOS_SCANNED',
+                'value' => 0,
+            ],[
                 'name' => 'BRICKSUM_WORDLIST',
                 'value' => 'brick, stud, tube, plate, slope, tile, technic, axle, gear, minifigure, connector, baseplate, corner, hinge, wedge, beam, bush, pin, element, knob, plate, cylinder, cone, bar, bracket, jumper, window, door, roof, panel, flag, antenna, wheel, arch, container, holder, clip, arm, seat, vehicle, propeller, horn, dish, radar, whip, hose, harpoon, fork, tail, knife, sword, axe, hammer, tool, wrench, screwdriver, spanner, chainsaw, saw, shovel, pickaxe, binoculars, camera, flashlight, lantern, magnifying, glass, compass, map, key, gem, crystal, jewel, coin, treasure, chest, trophy, cup, medal, shield, helmet, visor, goggles, hat, cap, tiara, crown, helmet, headgear, hairpiece, beard, glasses, mask, visor, oxygen, tank, backpack, pack, sack, suitcase, briefcase, crate, barrel, bucket, shovel, rock, stone, brick, slope, head, hairpiece, helmet, visor, hat, hands, torso',
             ],[
@@ -101,7 +107,7 @@ class DatabaseSeeder extends Seeder
                 'value' => 0,
             ],[
                 'name' => 'COLOURS_LAST_IMPORT',
-                'value' => 0,
+                'value' => '2024-07-18 13:25:36',
             ]
         );
 

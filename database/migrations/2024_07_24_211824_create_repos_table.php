@@ -15,17 +15,17 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('owner')->nullable();
-            $table->text('readme')->nullable();
-            $table->text('json')->nullable();
-            $table->boolean('error_readme')->default(0);
-            $table->boolean('error_favicon')->default(0);
-            $table->boolean('error_gitignore')->default(0);
-            $table->boolean('error_pages')->default(0);
+            $table->integer('pull_requests')->default(0);
+            $table->boolean('error_readme_exists')->default(0);
+            $table->boolean('error_readme_contents')->default(0);
+            $table->boolean('error_favicon_exists')->default(0);
+            $table->boolean('error_gitignore_exists')->default(0);
+            $table->boolean('error_gitignore_contents')->default(0);
             $table->boolean('error_protected')->default(0);
-            $table->boolean('error_cdn')->default(0);
-            $table->boolean('error_pull')->default(0);
+            $table->boolean('error_description')->default(0);
+            $table->boolean('error_topics')->default(0);
+            $table->text('error_comments')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

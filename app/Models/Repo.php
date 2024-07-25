@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Repo extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -18,15 +17,16 @@ class Repo extends Model
     protected $fillable = [
         'name',
         'owner',
-        'readme',
-        'json',
-        'error_readme',
-        'error_favicon',
-        'error_gitignore',
-        'error_pages',
+        'pull_requests',
+        'error_readme_exists',
+        'error_readme_contents',
+        'error_favicon_exists',
+        'error_gitignore_exists',
+        'error_gitignore_contents',
         'error_protected',
-        'error_cdn',
-        'error_pull',
+        'error_description',
+        'error_topics',
+        'error_comments',
     ];
 
     /**
@@ -36,12 +36,13 @@ class Repo extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'error_readme' => 'boolean',
-        'error_favicon' => 'boolean',
-        'error_gitignore' => 'boolean',
-        'error_pages' => 'boolean',
+        'error_readme_exists' => 'boolean',
+        'error_readme_contents' => 'boolean',
+        'error_favicon_exists' => 'boolean',
+        'error_gitignore_exists' => 'boolean',
+        'error_gitignore_contents' => 'boolean',
         'error_protected' => 'boolean',
-        'error_cdn' => 'boolean',
-        'error_pull' => 'boolean',
+        'error_description' => 'boolean',
+        'error_topics' => 'boolean',
     ];
 }

@@ -55,16 +55,16 @@ models:
   Repo:
     name: string
     owner: string nullable
-    readme: text nullable
-    json: text nullable
-    error_readme: boolean default:0
-    error_favicon: boolean default:0
-    error_gitignore: boolean default:0
-    error_pages: boolean default:0
+    pull_requests: integer default:0
+    error_readme_exists: boolean default:0
+    error_readme_contents: boolean default:0
+    error_favicon_exists: boolean default:0
+    error_gitignore_exists: boolean default:0
+    error_gitignore_contents: boolean default:0
     error_protected: boolean default:0
-    error_cdn: boolean default:0
-    error_pull: boolean default:0
-    softDeletes: true
+    error_description: boolean default:0
+    error_topics: boolean default:0
+    error_comments: text nullable
     timestamps: true
 
   Colour:
