@@ -65,6 +65,7 @@ models:
     error_description: boolean default:0
     error_topics: boolean default:0
     error_comments: text nullable
+    error_count: integer default:0
     timestamps: true
 
   Colour:

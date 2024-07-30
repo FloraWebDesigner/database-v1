@@ -33,6 +33,7 @@ class RepoFactory extends Factory
             'error_description' => $this->faker->boolean(),
             'error_topics' => $this->faker->boolean(),
             'error_comments' => $this->faker->text(),
+            'error_count' => $this->faker->numberBetween(-10000, 10000),
         ];
     }
 }

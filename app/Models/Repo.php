@@ -27,6 +27,7 @@ class Repo extends Model
         'error_description',
         'error_topics',
         'error_comments',
+        'error_count',
     ];
 
     /**
