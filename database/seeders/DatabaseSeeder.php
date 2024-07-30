@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $user = User::factory()->create([
             'first' => 'Doe',
             'last' => 'Thomas',
+            'url' => 'janedoe',
             'session_id' => rand(1000000000, 9999999999),
             'github_username' => '',
             'email' => 'janedoe@email.com',
