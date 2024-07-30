@@ -1,6 +1,7 @@
 models:
   City:
     name: string
+    url: string nullable
     width: integer nullable
     height: integer nullable
     image: longtext nullable
