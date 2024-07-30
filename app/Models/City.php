@@ -19,6 +19,7 @@ class City extends Model
      */
     protected $fillable = [
         'name',
+        'url',
         'width',
         'height',
         'image',

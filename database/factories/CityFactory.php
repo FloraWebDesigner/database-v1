@@ -23,6 +23,7 @@ class CityFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'url' => $this->faker->url(),
             'width' => $this->faker->numberBetween(-10000, 10000),
             'height' => $this->faker->numberBetween(-10000, 10000),
             'image' => $this->faker->text(),

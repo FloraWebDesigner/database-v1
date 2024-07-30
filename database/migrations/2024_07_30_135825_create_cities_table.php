@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('url')->nullable();
             $table->integer('width')->nullable();
             $table->integer('height')->nullable();
             $table->longText('image')->nullable();
