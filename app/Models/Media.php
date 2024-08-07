@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class City extends Model
+class Media extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -19,13 +19,12 @@ class City extends Model
      */
     protected $fillable = [
         'name',
-        'url',
-        'width',
-        'height',
+        'thumbnail',
         'image',
-        'date_at',
-        'date_multiplier',
+        'video',
+        'approved',
         'user_id',
+        'city_id',
     ];
 
     /**
@@ -35,8 +34,9 @@ class City extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'date_at' => 'timestamp',
+        'approved' => 'boolean',
         'user_id' => 'integer',
+        'city_id' => 'integer',
     ];
 
     public function user(): BelongsTo
@@ -44,8 +44,13 @@ class City extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function users(): BelongsToMany
+    public function city(): BelongsTo
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(City::class);
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

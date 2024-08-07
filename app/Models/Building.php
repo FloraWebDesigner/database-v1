@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class City extends Model
+class Building extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -19,13 +19,9 @@ class City extends Model
      */
     protected $fillable = [
         'name',
-        'url',
-        'width',
-        'height',
-        'image',
-        'date_at',
-        'date_multiplier',
-        'user_id',
+        'colour',
+        'set',
+        'square_id',
     ];
 
     /**
@@ -35,17 +31,16 @@ class City extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'date_at' => 'timestamp',
-        'user_id' => 'integer',
+        'square_id' => 'integer',
     ];
 
-    public function user(): BelongsTo
+    public function square(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Square::class);
     }
 
-    public function users(): BelongsToMany
+    public function squares(): HasMany
     {
-        return $this->belongsToMany(User::class);
+        return $this->hasMany(Square::class);
     }
 }

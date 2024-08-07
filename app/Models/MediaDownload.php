@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class City extends Model
+class MediaDownload extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -18,13 +16,7 @@ class City extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'url',
-        'width',
-        'height',
-        'image',
-        'date_at',
-        'date_multiplier',
+        'media_id',
         'user_id',
     ];
 
@@ -35,7 +27,7 @@ class City extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'date_at' => 'timestamp',
+        'media_id' => 'integer',
         'user_id' => 'integer',
     ];
 
@@ -44,8 +36,8 @@ class City extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function users(): BelongsToMany
+    public function media(): BelongsTo
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(Media::class);
     }
 }

@@ -1,9 +1,10 @@
 models:
   City:
     name: string
+    url: string nullable
     width: integer nullable
-    length: integer nullable
-    image: string nullable
+    height: integer nullable
+    image: longtext nullable
     date_at: timestamp
     date_multiplier: integer default:1
     user_id: integer
@@ -13,23 +14,100 @@ models:
       belongsTo: User
       belongsToMany: User
 
+  Square:
+    x: integer
+    y: integer
+    road: boolean default:0
+    road_rules: text nullable
+    track: boolean default:0
+    track_rules: text nullable
+    type: enum:ground,water default:ground
+    building_id: integer nullable
+    city_id: integer
+    relationships:
+      belongsTo: City, Building
+
+  Building:
+    name: string nullable
+    colour: string nullable
+    set: integer nullable
+    square_id: integer nullable
+    softDeletes: true
+    timestamps: true
+    relationships:
+      belongsTo: Square
+      hasMany: Square
+
   Setting:
     name: string
     value: text
     softDeletes: true
     timestamps: true
 
+  Invite:
+    email: string
+    invite_hash: string nullable
+    city_id: integer
+    user_id: integer
+    timestamps: true
+    relationships:
+      belongsTo: City, User
+
   Repo:
     name: string
     owner: string nullable
-    readme: text nullable
-    json: text nullable
-    error_readme: boolean default:0
-    error_favicon: boolean default:0
-    error_gitignore: boolean default:0
-    error_pages: boolean default:0
+    pull_requests: integer default:0
+    error_readme_exists: boolean default:0
+    error_readme_contents: boolean default:0
+    error_favicon_exists: boolean default:0
+    error_gitignore_exists: boolean default:0
+    error_gitignore_contents: boolean default:0
     error_protected: boolean default:0
-    error_cdn: boolean default:0
-    error_pull: boolean default:0
+    error_description: boolean default:0
+    error_topics: boolean default:0
+    error_comments: text nullable
+    error_count: integer default:0
+    timestamps: true
+
+  Colour:
+    name: string
+    rgb: string
+    is_trans: string
+    rebrickable_id: integer nullable
+    timestamps: true
+    relationships:
+      hasMany: External
+
+  External:
+    name: string
+    source: enum:brickowl,bricklink,ldraw,lego,peeron
+    colour_id: integer
+    timestamps: true
+    relationships:
+      belongsTo: Colour
+
+  Media:
+    name: string
+    thumbnail: string
+    image: longtext nullable
+    video: string nullable
+    approved: boolean default:0
+    user_id: integer nullable
+    city_id: integer nullable
     softDeletes: true
     timestamps: true
+    relationships:
+      belongsTo: User, City
+      belongsToMany: Tag
+
+  MediaDownload:
+    media_id: integer
+    user_id: integer nullable
+    timestamps: true
+    relationships:
+      belongsTo: User, Media
+
+  Tag:
+    name: string
+    relationships:
+      belongsToMany: Media
