@@ -111,3 +111,29 @@ models:
     name: string
     relationships:
       belongsToMany: Media
+  
+  Event:
+    event_name: string
+    start_date: datetime
+    end_date: datetime
+    description: text
+    photo: longtext nullable
+    organizer: string
+    location: string
+    detail_description: text
+    max_capacity: integer
+    tickets_bought: integer
+    timestamps: true
+    relationships:
+      hasMany: Participant
+
+  Participant:
+    first_name: string 
+    last_name: string
+    email: string
+    event_id: integer
+    indexes:
+      - unique: email, event_id
+    timestamps: true
+    relationships:
+      belongsTo: Event
