@@ -12,21 +12,23 @@ created:
     - database/factories/TagFactory.php
     - database/factories/EventFactory.php
     - database/factories/ParticipantFactory.php
-    - database/migrations/2024_08_08_150406_create_cities_table.php
-    - database/migrations/2024_08_08_150407_create_squares_table.php
-    - database/migrations/2024_08_08_150408_create_buildings_table.php
-    - database/migrations/2024_08_08_150409_create_settings_table.php
-    - database/migrations/2024_08_08_150410_create_invites_table.php
-    - database/migrations/2024_08_08_150411_create_repos_table.php
-    - database/migrations/2024_08_08_150412_create_colours_table.php
-    - database/migrations/2024_08_08_150413_create_externals_table.php
-    - database/migrations/2024_08_08_150414_create_media_table.php
-    - database/migrations/2024_08_08_150415_create_media_downloads_table.php
-    - database/migrations/2024_08_08_150416_create_tags_table.php
-    - database/migrations/2024_08_08_150417_create_events_table.php
-    - database/migrations/2024_08_08_150418_create_participants_table.php
-    - database/migrations/2024_08_08_150419_create_city_user_table.php
-    - database/migrations/2024_08_08_150420_create_media_tag_table.php
+    - database/factories/StoreFactory.php
+    - database/migrations/2024_08_13_203216_create_cities_table.php
+    - database/migrations/2024_08_13_203217_create_squares_table.php
+    - database/migrations/2024_08_13_203218_create_buildings_table.php
+    - database/migrations/2024_08_13_203219_create_settings_table.php
+    - database/migrations/2024_08_13_203220_create_invites_table.php
+    - database/migrations/2024_08_13_203221_create_repos_table.php
+    - database/migrations/2024_08_13_203222_create_colours_table.php
+    - database/migrations/2024_08_13_203223_create_externals_table.php
+    - database/migrations/2024_08_13_203224_create_media_table.php
+    - database/migrations/2024_08_13_203225_create_media_downloads_table.php
+    - database/migrations/2024_08_13_203226_create_tags_table.php
+    - database/migrations/2024_08_13_203227_create_events_table.php
+    - database/migrations/2024_08_13_203228_create_participants_table.php
+    - database/migrations/2024_08_13_203229_create_stores_table.php
+    - database/migrations/2024_08_13_203230_create_city_user_table.php
+    - database/migrations/2024_08_13_203231_create_media_tag_table.php
     - app/Models/City.php
     - app/Models/Square.php
     - app/Models/Building.php
@@ -40,8 +42,9 @@ created:
     - app/Models/Tag.php
     - app/Models/Event.php
     - app/Models/Participant.php
+    - app/Models/Store.php
 models:
-    User: { first: string, last: string, email: string, email_verified_at: 'timestamp nullable', github_username: 'string nullable', github_access_token: 'string nullable', reset_hash: 'string nullable', verify_hash: 'string nullable', avatar: 'longtext nullable', password: 'string nullable', session_id: 'string nullable', city_id: 'biginteger unsigned nullable', admin: boolean, remember_token: 'string:100 nullable' }
+    User: { first: string, last: string, email: string, email_verified_at: 'timestamp nullable', github_username: 'string nullable', github_access_token: 'string nullable', url: 'string nullable', reset_hash: 'string nullable', verify_hash: 'string nullable', avatar: 'longtext nullable', password: 'string nullable', session_id: 'string nullable', city_id: 'biginteger unsigned nullable', admin: boolean, remember_token: 'string:100 nullable' }
     City: { name: string, url: 'string nullable', width: 'integer nullable', height: 'integer nullable', image: 'longtext nullable', date_at: timestamp, date_multiplier: 'integer default:1', user_id: integer, softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: User, belongsToMany: User } }
     Square: { x: integer, 'y': integer, road: 'boolean default:0', road_rules: 'text nullable', track: 'boolean default:0', track_rules: 'text nullable', type: 'enum:ground,water default:ground', building_id: 'integer nullable', city_id: integer, relationships: { belongsTo: 'City, Building' } }
     Building: { name: 'string nullable', colour: 'string nullable', set: 'integer nullable', square_id: 'integer nullable', softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: Square, hasMany: Square } }
@@ -55,3 +58,4 @@ models:
     Tag: { name: string, relationships: { belongsToMany: Media } }
     Event: { event_name: string, start_date: datetime, end_date: datetime, description: text, photo: 'longtext nullable', organizer: string, location: string, detail_description: text, max_capacity: integer, tickets_bought: integer, timestamps: timestamps, relationships: { hasMany: Participant } }
     Participant: { first_name: string, last_name: string, email: string, event_id: integer, indexes: [{ unique: 'email, event_id' }], timestamps: timestamps, relationships: { belongsTo: Event } }
+    Store: { name: string, store_id: string, phone: string, certified: string, additional_info: text, store_url: string, timestamps: timestamps }

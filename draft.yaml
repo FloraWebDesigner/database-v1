@@ -137,3 +137,12 @@ models:
     timestamps: true
     relationships:
       belongsTo: Event
+
+  Store:
+    name: string
+    store_id: string
+    phone: string
+    certified: string
+    additional_info: text
+    store_url: string
+    timestamps: true

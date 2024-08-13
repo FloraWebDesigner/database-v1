@@ -111,6 +111,9 @@ class DatabaseSeeder extends Seeder
             ],[
                 'name' => 'COLOURS_LAST_IMPORT',
                 'value' => '2024-07-18 13:25:36',
+            ],[
+                'name' => 'STORES_LAST_IMPORT',
+                'value' => '2024-07-18 13:25:36',
             ]
         );
 
