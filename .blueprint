@@ -13,22 +13,22 @@ created:
     - database/factories/EventFactory.php
     - database/factories/ParticipantFactory.php
     - database/factories/StoreFactory.php
-    - database/migrations/2024_08_13_203216_create_cities_table.php
-    - database/migrations/2024_08_13_203217_create_squares_table.php
-    - database/migrations/2024_08_13_203218_create_buildings_table.php
-    - database/migrations/2024_08_13_203219_create_settings_table.php
-    - database/migrations/2024_08_13_203220_create_invites_table.php
-    - database/migrations/2024_08_13_203221_create_repos_table.php
-    - database/migrations/2024_08_13_203222_create_colours_table.php
-    - database/migrations/2024_08_13_203223_create_externals_table.php
-    - database/migrations/2024_08_13_203224_create_media_table.php
-    - database/migrations/2024_08_13_203225_create_media_downloads_table.php
-    - database/migrations/2024_08_13_203226_create_tags_table.php
-    - database/migrations/2024_08_13_203227_create_events_table.php
-    - database/migrations/2024_08_13_203228_create_participants_table.php
-    - database/migrations/2024_08_13_203229_create_stores_table.php
-    - database/migrations/2024_08_13_203230_create_city_user_table.php
-    - database/migrations/2024_08_13_203231_create_media_tag_table.php
+    - database/migrations/2024_08_15_171137_create_cities_table.php
+    - database/migrations/2024_08_15_171138_create_squares_table.php
+    - database/migrations/2024_08_15_171139_create_buildings_table.php
+    - database/migrations/2024_08_15_171140_create_settings_table.php
+    - database/migrations/2024_08_15_171141_create_invites_table.php
+    - database/migrations/2024_08_15_171142_create_repos_table.php
+    - database/migrations/2024_08_15_171143_create_colours_table.php
+    - database/migrations/2024_08_15_171144_create_externals_table.php
+    - database/migrations/2024_08_15_171145_create_media_table.php
+    - database/migrations/2024_08_15_171146_create_media_downloads_table.php
+    - database/migrations/2024_08_15_171147_create_tags_table.php
+    - database/migrations/2024_08_15_171148_create_events_table.php
+    - database/migrations/2024_08_15_171149_create_participants_table.php
+    - database/migrations/2024_08_15_171150_create_stores_table.php
+    - database/migrations/2024_08_15_171151_create_city_user_table.php
+    - database/migrations/2024_08_15_171152_create_media_tag_table.php
     - app/Models/City.php
     - app/Models/Square.php
     - app/Models/Building.php
@@ -58,4 +58,4 @@ models:
     Tag: { name: string, relationships: { belongsToMany: Media } }
     Event: { event_name: string, start_date: datetime, end_date: datetime, description: text, photo: 'longtext nullable', organizer: string, location: string, detail_description: text, max_capacity: integer, tickets_bought: integer, timestamps: timestamps, relationships: { hasMany: Participant } }
     Participant: { first_name: string, last_name: string, email: string, event_id: integer, indexes: [{ unique: 'email, event_id' }], timestamps: timestamps, relationships: { belongsTo: Event } }
-    Store: { name: string, store_id: string, phone: string, certified: string, additional_info: text, store_url: string, timestamps: timestamps }
+    Store: { name: string, store_id: string, phone: string, certified: string, additional_info: text, store_url: string, image: 'longtext nullable', timestamps: timestamps }

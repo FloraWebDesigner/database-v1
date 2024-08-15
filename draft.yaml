@@ -145,4 +145,5 @@ models:
     certified: string
     additional_info: text
     store_url: string
+    image: longtext nullable
     timestamps: true

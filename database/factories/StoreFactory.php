@@ -27,6 +27,7 @@ class StoreFactory extends Factory
             'certified' => $this->faker->word(),
             'additional_info' => $this->faker->text(),
             'store_url' => $this->faker->word(),
+            'image' => $this->faker->text(),
         ];
     }
 }

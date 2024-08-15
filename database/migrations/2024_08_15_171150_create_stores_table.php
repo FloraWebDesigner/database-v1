@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('certified');
             $table->text('additional_info');
             $table->string('store_url');
+            $table->longText('image')->nullable();
             $table->timestamps();
         });
     }
