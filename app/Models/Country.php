@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Store extends Model
+class Country extends Model
 {
     use HasFactory;
 
@@ -16,11 +16,8 @@ class Store extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'country_id',
-        'store_id',
-        'image',
-        'json',
+        'country_code',
+        'long_name',
     ];
 
     /**
@@ -30,11 +27,10 @@ class Store extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'country_id' => 'integer',
     ];
 
-    public function country(): BelongsTo
+    public function stores(): HasMany
     {
-        return $this->belongsTo(Country::class);
+        return $this->hasMany(Store::class);
     }
 }

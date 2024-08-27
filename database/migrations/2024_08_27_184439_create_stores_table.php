@@ -14,12 +14,10 @@ return new class extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('country_id')->nullable();
             $table->string('store_id');
-            $table->string('phone');
-            $table->string('certified');
-            $table->text('additional_info');
-            $table->string('store_url');
             $table->longText('image')->nullable();
+            $table->longText('json');
             $table->timestamps();
         });
     }

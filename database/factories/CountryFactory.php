@@ -5,16 +5,15 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Country;
-use App\Models\Store;
 
-class StoreFactory extends Factory
+class CountryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Store::class;
+    protected $model = Country::class;
 
     /**
      * Define the model's default state.
@@ -22,11 +21,8 @@ class StoreFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'country_id' => Country::factory(),
-            'store_id' => $this->faker->word(),
-            'image' => $this->faker->text(),
-            'json' => $this->faker->text(),
+            'country_code' => $this->faker->word(),
+            'long_name' => $this->faker->word(),
         ];
     }
 }

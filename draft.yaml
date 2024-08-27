@@ -131,19 +131,26 @@ models:
     first_name: string 
     last_name: string
     email: string
-    event_id: integer
+    event_id: integer nullable
     indexes:
       - unique: email, event_id
     timestamps: true
     relationships:
       belongsTo: Event
 
+  Country:
+    country_code: string
+    long_name: string
+    timestamps: true
+    relationships:
+      hasMany: Store
+
   Store:
     name: string
+    country_id: integer nullable
     store_id: string
-    phone: string
-    certified: string
-    additional_info: text
-    store_url: string
     image: longtext nullable
+    json: longtext
     timestamps: true
+    relationships:
+      belongsTo: Country
