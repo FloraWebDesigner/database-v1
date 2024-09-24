@@ -22,9 +22,11 @@ class Media extends Model
         'thumbnail',
         'image',
         'video',
+        'audio',
         'approved',
         'user_id',
         'city_id',
+        'google_id',
     ];
 
     /**
