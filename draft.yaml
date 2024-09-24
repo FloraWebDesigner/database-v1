@@ -88,12 +88,14 @@ models:
 
   Media:
     name: string
-    thumbnail: string
-    image: longtext nullable
+    thumbnail: string nullable
+    image: string nullable
     video: string nullable
+    audio: string nullable
     approved: boolean default:0
     user_id: integer nullable
     city_id: integer nullable
+    google_id: string nullable
     softDeletes: true
     timestamps: true
     relationships:
@@ -111,7 +113,7 @@ models:
     name: string
     relationships:
       belongsToMany: Media
-  
+
   Event:
     event_name: string
     start_date: datetime
@@ -128,7 +130,7 @@ models:
       hasMany: Participant
 
   Participant:
-    first_name: string 
+    first_name: string
     last_name: string
     email: string
     event_id: integer nullable
