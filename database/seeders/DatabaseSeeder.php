@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\City;
 use App\Models\Setting;
 use App\Models\Tag;
+use App\Models\Panel;
 
 use Carbon\Carbon;
 
@@ -140,5 +141,49 @@ class DatabaseSeeder extends Seeder
             ]);
         }
         
+        // **************************************************
+        // Panels
+        $panels = [
+            [
+                'port_id' => 'MA',
+                'cartridge' => null,
+                'city_id' => 1,
+                'value' => 'OFF',
+            ],
+            [
+                'port_id' => 'S1',
+                'cartridge' => null,
+                'city_id' => 1,
+                'value' => 'BLUE',
+            ],
+            ['port_id' => 'MB', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MC', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MD', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MB', 'cartridge' => 'RED', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MC', 'cartridge' => 'RED', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MD', 'cartridge' => 'RED', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MB', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MC', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MD', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MB', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MC', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'MD', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'S2', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S3', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S4', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S2', 'cartridge' => 'RED', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S3', 'cartridge' => 'RED', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S4', 'cartridge' => 'RED', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S2', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S3', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S4', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S2', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S3', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S4', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => 'OFF'],
+        ];
+
+        foreach ($panels as $panel) {
+            Panel::create($panel);
+        }
     }
 }
