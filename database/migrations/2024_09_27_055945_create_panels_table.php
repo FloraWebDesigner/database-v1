@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('panels', function (Blueprint $table) {
             $table->id();
             $table->string('port_id');
-            $table->string('cartridge');
+            $table->string('cartridge')->nullable();
             $table->foreignId('city_id')->constrained('cities');
-            $table->integer('value');
+            $table->string('value');
             $table->timestamps();
         });
     }
