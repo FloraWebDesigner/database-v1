@@ -132,6 +132,15 @@ class DatabaseSeeder extends Seeder
             ],[
                 'name' => 'COUNTRIES_LAST_IMPORT',
                 'value' => '2024-07-18 13:25:36',
+            ],[
+                'name' => 'GOOGLE_VIDEO_LAST_IMPORT',
+                'value' => '2024-07-18 13:25:36',
+            ],[
+                'name' => 'GOOGLE_PHOTO_LAST_IMPORT',
+                'value' => '2024-07-18 13:25:36',
+            ],[
+                'name' => 'GOOGLE_AUDIO_LAST_IMPORT',
+                'value' => '2024-07-18 13:25:36',
             ]
         );
 
