@@ -14,23 +14,25 @@ created:
     - database/factories/ParticipantFactory.php
     - database/factories/CountryFactory.php
     - database/factories/StoreFactory.php
-    - database/migrations/2024_09_24_212944_create_cities_table.php
-    - database/migrations/2024_09_24_212945_create_squares_table.php
-    - database/migrations/2024_09_24_212946_create_buildings_table.php
-    - database/migrations/2024_09_24_212947_create_settings_table.php
-    - database/migrations/2024_09_24_212948_create_invites_table.php
-    - database/migrations/2024_09_24_212949_create_repos_table.php
-    - database/migrations/2024_09_24_212950_create_colours_table.php
-    - database/migrations/2024_09_24_212951_create_externals_table.php
-    - database/migrations/2024_09_24_212952_create_media_table.php
-    - database/migrations/2024_09_24_212953_create_media_downloads_table.php
-    - database/migrations/2024_09_24_212954_create_tags_table.php
-    - database/migrations/2024_09_24_212955_create_events_table.php
-    - database/migrations/2024_09_24_212956_create_participants_table.php
-    - database/migrations/2024_09_24_212957_create_countries_table.php
-    - database/migrations/2024_09_24_212958_create_stores_table.php
-    - database/migrations/2024_09_24_212959_create_city_user_table.php
-    - database/migrations/2024_09_24_213000_create_media_tag_table.php
+    - database/factories/PanelsFactory.php
+    - database/migrations/2024_10_09_235108_create_cities_table.php
+    - database/migrations/2024_10_09_235109_create_squares_table.php
+    - database/migrations/2024_10_09_235110_create_buildings_table.php
+    - database/migrations/2024_10_09_235111_create_settings_table.php
+    - database/migrations/2024_10_09_235112_create_invites_table.php
+    - database/migrations/2024_10_09_235113_create_repos_table.php
+    - database/migrations/2024_10_09_235114_create_colours_table.php
+    - database/migrations/2024_10_09_235115_create_externals_table.php
+    - database/migrations/2024_10_09_235116_create_media_table.php
+    - database/migrations/2024_10_09_235117_create_media_downloads_table.php
+    - database/migrations/2024_10_09_235118_create_tags_table.php
+    - database/migrations/2024_10_09_235119_create_events_table.php
+    - database/migrations/2024_10_09_235120_create_participants_table.php
+    - database/migrations/2024_10_09_235121_create_countries_table.php
+    - database/migrations/2024_10_09_235122_create_stores_table.php
+    - database/migrations/2024_10_09_235123_create_panels_table.php
+    - database/migrations/2024_10_09_235124_create_city_user_table.php
+    - database/migrations/2024_10_09_235125_create_media_tag_table.php
     - app/Models/City.php
     - app/Models/Square.php
     - app/Models/Building.php
@@ -46,7 +48,9 @@ created:
     - app/Models/Participant.php
     - app/Models/Country.php
     - app/Models/Store.php
+    - app/Models/Panels.php
 models:
+    Panel: { value: 'string nullable', cartridge: "enum:'green','red','blue','orange','black','white','brown' nullable", port: "enum:'a','b','c','d','1','2','3','4'", city_id: 'biginteger unsigned' }
     User: { first: string, last: string, email: string, email_verified_at: 'timestamp nullable', github_username: 'string nullable', github_access_token: 'string nullable', url: 'string nullable', reset_hash: 'string nullable', verify_hash: 'string nullable', avatar: 'longtext nullable', password: 'string nullable', session_id: 'string nullable', city_id: 'biginteger unsigned nullable', admin: boolean, remember_token: 'string:100 nullable' }
     City: { name: string, url: 'string nullable', width: 'integer nullable', height: 'integer nullable', image: 'longtext nullable', date_at: timestamp, date_multiplier: 'integer default:1', user_id: integer, softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: User, belongsToMany: User } }
     Square: { x: integer, 'y': integer, road: 'boolean default:0', road_rules: 'text nullable', track: 'boolean default:0', track_rules: 'text nullable', type: 'enum:ground,water default:ground', building_id: 'integer nullable', city_id: integer, relationships: { belongsTo: 'City, Building' } }
@@ -56,10 +60,11 @@ models:
     Repo: { name: string, owner: 'string nullable', pull_requests: 'integer default:0', error_readme_exists: 'boolean default:0', error_readme_contents: 'boolean default:0', error_favicon_exists: 'boolean default:0', error_gitignore_exists: 'boolean default:0', error_gitignore_contents: 'boolean default:0', error_protected: 'boolean default:0', error_description: 'boolean default:0', error_topics: 'boolean default:0', error_comments: 'text nullable', error_count: 'integer default:0', timestamps: timestamps }
     Colour: { name: string, rgb: string, is_trans: string, rebrickable_id: 'integer nullable', timestamps: timestamps, relationships: { hasMany: External } }
     External: { name: string, source: 'enum:brickowl,bricklink,ldraw,lego,peeron', colour_id: integer, timestamps: timestamps, relationships: { belongsTo: Colour } }
-    Media: { name: string, thumbnail: 'string nullable', image: 'string nullable', video: 'string nullable', audio: 'string nullable', approved: 'boolean default:0', user_id: 'integer nullable', city_id: 'integer nullable', google_id: 'string nullable', softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: 'User, City', belongsToMany: Tag } }
+    Media: { name: string, approved: 'boolean default:0', user_id: 'integer nullable', city_id: 'integer nullable', google_id: 'string nullable', softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: 'User, City', belongsToMany: Tag } }
     MediaDownload: { media_id: integer, user_id: 'integer nullable', timestamps: timestamps, relationships: { belongsTo: 'User, Media' } }
     Tag: { name: string, relationships: { belongsToMany: Media } }
     Event: { event_name: string, start_date: datetime, end_date: datetime, description: text, photo: 'longtext nullable', organizer: string, location: string, detail_description: text, max_capacity: integer, tickets_bought: integer, timestamps: timestamps, relationships: { hasMany: Participant } }
     Participant: { first_name: string, last_name: string, email: string, event_id: 'integer nullable', indexes: [{ unique: 'email, event_id' }], timestamps: timestamps, relationships: { belongsTo: Event } }
     Country: { country_code: string, long_name: string, timestamps: timestamps, relationships: { hasMany: Store } }
     Store: { name: string, country_id: 'integer nullable', store_id: string, image: 'longtext nullable', json: longtext, timestamps: timestamps, relationships: { belongsTo: Country } }
+    Panels: { value: 'string nullable', cartridge: 'enum:red,blue,brown,yellow nullable', port: 'enum:a,b,c,d,1,2,3,4', city_id: integer, timestamps: timestamps, relationships: { belongsTo: City } }

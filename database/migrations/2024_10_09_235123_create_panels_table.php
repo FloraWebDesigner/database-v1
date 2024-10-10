@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('panels', function (Blueprint $table) {
             $table->id();
-            $table->string('port_id');
-            $table->string('cartridge')->nullable();
-            $table->foreignId('city_id')->constrained('cities');
-            $table->string('value');
+            $table->string('value')->nullable();
+            $table->enum('cartridge', ["red","blue","brown","yellow"])->nullable();
+            $table->enum('port', ["a","b","c","d","1","2","3","4"]);
+            $table->foreignId('city_id');
             $table->timestamps();
         });
     }

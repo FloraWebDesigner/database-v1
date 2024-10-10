@@ -88,10 +88,6 @@ models:
 
   Media:
     name: string
-    thumbnail: string nullable
-    image: string nullable
-    video: string nullable
-    audio: string nullable
     approved: boolean default:0
     user_id: integer nullable
     city_id: integer nullable
@@ -156,3 +152,12 @@ models:
     timestamps: true
     relationships:
       belongsTo: Country
+
+  Panels:
+    value: string nullable
+    cartridge: enum:red,blue,brown,yellow nullable
+    port: enum:a,b,c,d,1,2,3,4
+    city_id: integer
+    timestamps: true
+    relationships:
+      belongsTo: City

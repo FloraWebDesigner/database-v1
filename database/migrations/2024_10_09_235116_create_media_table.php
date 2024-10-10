@@ -14,10 +14,6 @@ return new class extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('thumbnail')->nullable();
-            $table->string('image')->nullable();
-            $table->string('video')->nullable();
-            $table->string('audio')->nullable();
             $table->boolean('approved')->default(0);
             $table->foreignId('user_id')->nullable();
             $table->foreignId('city_id')->nullable();

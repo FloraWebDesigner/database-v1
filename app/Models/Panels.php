@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Media extends Model
+class Panels extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -18,11 +16,10 @@ class Media extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'approved',
-        'user_id',
+        'value',
+        'cartridge',
+        'port',
         'city_id',
-        'google_id',
     ];
 
     /**
@@ -32,23 +29,11 @@ class Media extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'approved' => 'boolean',
-        'user_id' => 'integer',
         'city_id' => 'integer',
     ];
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
 
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
-    }
-
-    public function tags(): BelongsToMany
-    {
-        return $this->belongsToMany(Tag::class);
     }
 }
