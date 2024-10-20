@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('qr_codes', function (Blueprint $table) {
+        Schema::create('qrs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('redirect_url');
-            $table->text('qr_code_image');
-            $table->string('unique_id')->unique();
+            $table->string('hash');
+            $table->string('url')->nullable();
+            $table->longText('image')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('qr_codes');
+        Schema::dropIfExists('qrs');
     }
 };

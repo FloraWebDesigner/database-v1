@@ -5,16 +5,16 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\City;
-use App\Models\Panels;
+use App\Models\Panel;
 
-class PanelsFactory extends Factory
+class PanelFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Panels::class;
+    protected $model = Panel::class;
 
     /**
      * Define the model's default state.

@@ -154,7 +154,7 @@ models:
     relationships:
       belongsTo: Country
 
-  Panels:
+  Panel:
     value: string nullable
     cartridge: enum:red,blue,brown,yellow nullable
     port: enum:a,b,c,d,1,2,3,4
@@ -162,3 +162,21 @@ models:
     timestamps: true
     relationships:
       belongsTo: City
+
+  Qr:
+    name: string
+    hash: string
+    url: string nullable
+    image: longtext nullable
+    timestamps: true
+    relationships:
+      hasMany: QrLog
+
+  QrLog:
+    name: string
+    hash: string
+    url: string nullable
+    qr_id: intenger nullable
+    timestamps: true
+    relationships:
+      belongsTo: Qr

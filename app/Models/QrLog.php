@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Panels extends Model
+class QrLog extends Model
 {
     use HasFactory;
 
@@ -16,10 +16,10 @@ class Panels extends Model
      * @var array
      */
     protected $fillable = [
-        'value',
-        'cartridge',
-        'port',
-        'city_id',
+        'name',
+        'hash',
+        'url',
+        'qr_id',
     ];
 
     /**
@@ -29,11 +29,11 @@ class Panels extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'city_id' => 'integer',
+        'qr_id' => 'integer',
     ];
 
-    public function city(): BelongsTo
+    public function qr(): BelongsTo
     {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(Qr::class);
     }
 }
