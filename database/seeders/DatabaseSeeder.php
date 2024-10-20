@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\City;
 use App\Models\Setting;
 use App\Models\Tag;
+use App\Models\Panel;
 
 use Carbon\Carbon;
 
@@ -107,7 +108,7 @@ class DatabaseSeeder extends Seeder
                 'value' => 'STOCK_PHOTO,1k7lntYThFwsWoheP9_fYoS84vWPCjwj6',
             ],[
                 'name' => 'GOOGLE_DRIVE_AUDIO',
-                'value' => 'STOCK_AUDIO,1k7lntYThFwsWoheP9_fYoS84vWPCjwj6',
+                'value' => 'STOCK_AUDIO,12Z9LraPPRno2ZGt3DL3nZ5cIb8ur0XJd',
             ],[
                 'name' => 'BRICKSUM_WORDLIST',
                 'value' => 'brick, stud, tube, plate, slope, tile, technic, axle, gear, minifigure, connector, baseplate, corner, hinge, wedge, beam, bush, pin, element, knob, plate, cylinder, cone, bar, bracket, jumper, window, door, roof, panel, flag, antenna, wheel, arch, container, holder, clip, arm, seat, vehicle, propeller, horn, dish, radar, whip, hose, harpoon, fork, tail, knife, sword, axe, hammer, tool, wrench, screwdriver, spanner, chainsaw, saw, shovel, pickaxe, binoculars, camera, flashlight, lantern, magnifying, glass, compass, map, key, gem, crystal, jewel, coin, treasure, chest, trophy, cup, medal, shield, helmet, visor, goggles, hat, cap, tiara, crown, helmet, headgear, hairpiece, beard, glasses, mask, visor, oxygen, tank, backpack, pack, sack, suitcase, briefcase, crate, barrel, bucket, shovel, rock, stone, brick, slope, head, hairpiece, helmet, visor, hat, hands, torso',
@@ -152,5 +153,49 @@ class DatabaseSeeder extends Seeder
             ]);
         }
         
+        // **************************************************
+        // Panels
+        $panels = [
+            [
+                'port_id' => 'A',
+                'cartridge' => null,
+                'city_id' => 1,
+                'value' => 'OFF',
+            ],
+            [
+                'port_id' => 'S1',
+                'cartridge' => null,
+                'city_id' => 1,
+                'value' => 'BLUE',
+            ],
+            ['port_id' => 'B', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'C', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'D', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'B', 'cartridge' => 'RED', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'C', 'cartridge' => 'RED', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'D', 'cartridge' => 'RED', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'B', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'C', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'D', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'B', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'C', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'D', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => '0'],
+            ['port_id' => 'S2', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S3', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S4', 'cartridge' => 'BLUE', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S2', 'cartridge' => 'RED', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S3', 'cartridge' => 'RED', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S4', 'cartridge' => 'RED', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S2', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S3', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S4', 'cartridge' => 'BROWN', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S2', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S3', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => 'OFF'],
+            ['port_id' => 'S4', 'cartridge' => 'YELLOW', 'city_id' => 1, 'value' => 'OFF'],
+        ];
+
+        foreach ($panels as $panel) {
+            Panel::create($panel);
+        }
     }
 }
