@@ -25,6 +25,7 @@ class MediaFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'approved' => $this->faker->boolean(),
+            'type' => $this->faker->randomElement(["audio","image","video"]),
             'user_id' => User::factory(),
             'city_id' => ::factory(),
             'google_id' => $this->faker->word(),

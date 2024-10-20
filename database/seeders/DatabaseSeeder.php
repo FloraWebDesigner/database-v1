@@ -104,8 +104,8 @@ class DatabaseSeeder extends Seeder
                 'name' => 'GOOGLE_DRIVE_VIDEO',
                 'value' => 'STOCK_VIDEO,1351-DxRjX_siFqLzSiQGwT1SzwuXDwel',
             ],[
-                'name' => 'GOOGLE_DRIVE_PHOTO',
-                'value' => 'STOCK_PHOTO,1k7lntYThFwsWoheP9_fYoS84vWPCjwj6',
+                'name' => 'GOOGLE_DRIVE_IMAGE',
+                'value' => 'STOCK_IMAGE,1k7lntYThFwsWoheP9_fYoS84vWPCjwj6',
             ],[
                 'name' => 'GOOGLE_DRIVE_AUDIO',
                 'value' => 'STOCK_AUDIO,12Z9LraPPRno2ZGt3DL3nZ5cIb8ur0XJd',

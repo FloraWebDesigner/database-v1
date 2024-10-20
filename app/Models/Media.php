@@ -20,6 +20,7 @@ class Media extends Model
     protected $fillable = [
         'name',
         'approved',
+        'type',
         'user_id',
         'city_id',
         'google_id',

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('approved')->default(0);
+            $table->enum('type', ["audio","image","video"]);
             $table->foreignId('user_id')->nullable();
             $table->foreignId('city_id')->nullable();
             $table->string('google_id')->nullable();

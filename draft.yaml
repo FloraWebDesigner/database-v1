@@ -89,6 +89,7 @@ models:
   Media:
     name: string
     approved: boolean default:0
+    type: enum:audio,image,video
     user_id: integer nullable
     city_id: integer nullable
     google_id: string nullable
