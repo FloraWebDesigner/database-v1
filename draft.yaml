@@ -168,9 +168,11 @@ models:
     hash: string
     url: string nullable
     image: longtext nullable
+    city_id: integer
     timestamps: true
     relationships:
       hasMany: QrLog
+      belongsTo: City
 
   QrLog:
     name: string
