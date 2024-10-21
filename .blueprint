@@ -17,26 +17,26 @@ created:
     - database/factories/PanelFactory.php
     - database/factories/QrFactory.php
     - database/factories/QrLogFactory.php
-    - database/migrations/2024_10_20_220148_create_cities_table.php
-    - database/migrations/2024_10_20_220149_create_squares_table.php
-    - database/migrations/2024_10_20_220150_create_buildings_table.php
-    - database/migrations/2024_10_20_220151_create_settings_table.php
-    - database/migrations/2024_10_20_220152_create_invites_table.php
-    - database/migrations/2024_10_20_220153_create_repos_table.php
-    - database/migrations/2024_10_20_220154_create_colours_table.php
-    - database/migrations/2024_10_20_220155_create_externals_table.php
-    - database/migrations/2024_10_20_220156_create_media_table.php
-    - database/migrations/2024_10_20_220157_create_media_downloads_table.php
-    - database/migrations/2024_10_20_220158_create_tags_table.php
-    - database/migrations/2024_10_20_220159_create_events_table.php
-    - database/migrations/2024_10_20_220200_create_participants_table.php
-    - database/migrations/2024_10_20_220201_create_countries_table.php
-    - database/migrations/2024_10_20_220202_create_stores_table.php
-    - database/migrations/2024_10_20_220203_create_panels_table.php
-    - database/migrations/2024_10_20_220204_create_qrs_table.php
-    - database/migrations/2024_10_20_220205_create_qr_logs_table.php
-    - database/migrations/2024_10_20_220206_create_city_user_table.php
-    - database/migrations/2024_10_20_220207_create_media_tag_table.php
+    - database/migrations/2024_10_21_020659_create_cities_table.php
+    - database/migrations/2024_10_21_020700_create_squares_table.php
+    - database/migrations/2024_10_21_020701_create_buildings_table.php
+    - database/migrations/2024_10_21_020702_create_settings_table.php
+    - database/migrations/2024_10_21_020703_create_invites_table.php
+    - database/migrations/2024_10_21_020704_create_repos_table.php
+    - database/migrations/2024_10_21_020705_create_colours_table.php
+    - database/migrations/2024_10_21_020706_create_externals_table.php
+    - database/migrations/2024_10_21_020707_create_media_table.php
+    - database/migrations/2024_10_21_020708_create_media_downloads_table.php
+    - database/migrations/2024_10_21_020709_create_tags_table.php
+    - database/migrations/2024_10_21_020710_create_events_table.php
+    - database/migrations/2024_10_21_020711_create_participants_table.php
+    - database/migrations/2024_10_21_020712_create_countries_table.php
+    - database/migrations/2024_10_21_020713_create_stores_table.php
+    - database/migrations/2024_10_21_020714_create_panels_table.php
+    - database/migrations/2024_10_21_020715_create_qrs_table.php
+    - database/migrations/2024_10_21_020716_create_qr_logs_table.php
+    - database/migrations/2024_10_21_020717_create_city_user_table.php
+    - database/migrations/2024_10_21_020718_create_media_tag_table.php
     - app/Models/City.php
     - app/Models/Square.php
     - app/Models/Building.php
@@ -73,5 +73,5 @@ models:
     Country: { country_code: string, long_name: string, timestamps: timestamps, relationships: { hasMany: Store } }
     Store: { name: string, country_id: 'integer nullable', store_id: string, image: 'longtext nullable', json: longtext, timestamps: timestamps, relationships: { belongsTo: Country } }
     Panel: { value: 'string nullable', cartridge: 'enum:red,blue,brown,yellow nullable', port: 'enum:a,b,c,d,1,2,3,4', city_id: integer, timestamps: timestamps, relationships: { belongsTo: City } }
-    Qr: { name: string, hash: string, url: 'string nullable', image: 'longtext nullable', timestamps: timestamps, relationships: { hasMany: QrLog } }
+    Qr: { name: string, hash: string, url: 'string nullable', image: 'longtext nullable', city_id: integer, timestamps: timestamps, relationships: { hasMany: QrLog, belongsTo: City } }
     QrLog: { name: string, hash: string, url: 'string nullable', qr_id: 'intenger nullable', timestamps: timestamps, relationships: { belongsTo: Qr } }

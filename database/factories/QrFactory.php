@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\City;
 use App\Models\Qr;
 
 class QrFactory extends Factory
@@ -25,6 +26,7 @@ class QrFactory extends Factory
             'hash' => $this->faker->word(),
             'url' => $this->faker->url(),
             'image' => $this->faker->text(),
+            'city_id' => City::factory(),
         ];
     }
 }

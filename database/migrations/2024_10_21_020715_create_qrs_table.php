@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('hash');
             $table->string('url')->nullable();
             $table->longText('image')->nullable();
+            $table->foreignId('city_id');
             $table->timestamps();
         });
     }
