@@ -224,5 +224,29 @@ class DatabaseSeeder extends Seeder
         foreach ($qrs as $qr) {
             Qr::create($qr);
         }
+
+        // Radio - Schedules`
+        $schedules = [
+            ['segment_id' => 1, 'time' => '06:00:00'],
+            ['segment_id' => 2, 'time' => '12:00:00'],
+            ['segment_id' => 3, 'time' => '18:00:00'],
+            ['segment_id' => 4, 'time' => '17:00:00'],
+        ];
+
+        foreach ($schedules as $schedule) {
+            Schedule::create($schedule);
+        }
+
+        // Radio - Broadcast Logs
+        $broadcastLogs = [
+            ['city_id' => 1, 'segment_id' => 1, 'broadcast_time' => Carbon::now()->toDateTimeString(), 'content' => 'Welcome to the Morning Talk Show on Brick City FM!'],
+            ['city_id' => 1, 'segment_id' => 2, 'broadcast_time' => Carbon::now()->addHours(6)->toDateTimeString(), 'content' => 'Here are your top hits for lunch on Brick City FM!'],
+            ['city_id' => 1, 'segment_id' => 3, 'broadcast_time' => Carbon::now()->addHours(12)->toDateTimeString(), 'content' => 'Good evening, this is your Brick City FM Evening News!'],
+            ['city_id' => 1, 'segment_id' => 4, 'broadcast_time' => Carbon::now()->addHours(11)->toDateTimeString(), 'content' => 'Latest updates on Traffic News.'],
+        ];
+
+        foreach ($broadcastLogs as $log) {
+            BroadcastLog::create($log);
+        }`
     }
 }
