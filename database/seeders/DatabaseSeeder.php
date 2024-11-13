@@ -225,6 +225,7 @@ class DatabaseSeeder extends Seeder
             Qr::create($qr);
         }
 
+        /*
         // Radio - Schedules`
         $schedules = [
             ['segment_id' => 1, 'time' => '06:00:00'],
@@ -247,6 +248,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($broadcastLogs as $log) {
             BroadcastLog::create($log);
-        }`
+        }
+        */
     }
 }
