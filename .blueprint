@@ -17,26 +17,26 @@ created:
     - database/factories/PanelFactory.php
     - database/factories/QrFactory.php
     - database/factories/QrLogFactory.php
-    - database/migrations/2024_10_21_020659_create_cities_table.php
-    - database/migrations/2024_10_21_020700_create_squares_table.php
-    - database/migrations/2024_10_21_020701_create_buildings_table.php
-    - database/migrations/2024_10_21_020702_create_settings_table.php
-    - database/migrations/2024_10_21_020703_create_invites_table.php
-    - database/migrations/2024_10_21_020704_create_repos_table.php
-    - database/migrations/2024_10_21_020705_create_colours_table.php
-    - database/migrations/2024_10_21_020706_create_externals_table.php
-    - database/migrations/2024_10_21_020707_create_media_table.php
-    - database/migrations/2024_10_21_020708_create_media_downloads_table.php
-    - database/migrations/2024_10_21_020709_create_tags_table.php
-    - database/migrations/2024_10_21_020710_create_events_table.php
-    - database/migrations/2024_10_21_020711_create_participants_table.php
-    - database/migrations/2024_10_21_020712_create_countries_table.php
-    - database/migrations/2024_10_21_020713_create_stores_table.php
-    - database/migrations/2024_10_21_020714_create_panels_table.php
-    - database/migrations/2024_10_21_020715_create_qrs_table.php
-    - database/migrations/2024_10_21_020716_create_qr_logs_table.php
-    - database/migrations/2024_10_21_020717_create_city_user_table.php
-    - database/migrations/2024_10_21_020718_create_media_tag_table.php
+    - database/migrations/2024_11_13_203510_create_cities_table.php
+    - database/migrations/2024_11_13_203511_create_squares_table.php
+    - database/migrations/2024_11_13_203512_create_buildings_table.php
+    - database/migrations/2024_11_13_203513_create_settings_table.php
+    - database/migrations/2024_11_13_203514_create_invites_table.php
+    - database/migrations/2024_11_13_203515_create_repos_table.php
+    - database/migrations/2024_11_13_203516_create_colours_table.php
+    - database/migrations/2024_11_13_203517_create_externals_table.php
+    - database/migrations/2024_11_13_203518_create_media_table.php
+    - database/migrations/2024_11_13_203519_create_media_downloads_table.php
+    - database/migrations/2024_11_13_203520_create_tags_table.php
+    - database/migrations/2024_11_13_203521_create_events_table.php
+    - database/migrations/2024_11_13_203522_create_participants_table.php
+    - database/migrations/2024_11_13_203523_create_countries_table.php
+    - database/migrations/2024_11_13_203524_create_stores_table.php
+    - database/migrations/2024_11_13_203525_create_panels_table.php
+    - database/migrations/2024_11_13_203526_create_qrs_table.php
+    - database/migrations/2024_11_13_203527_create_qr_logs_table.php
+    - database/migrations/2024_11_13_203528_create_city_user_table.php
+    - database/migrations/2024_11_13_203529_create_media_tag_table.php
     - app/Models/City.php
     - app/Models/Square.php
     - app/Models/Building.php
@@ -58,7 +58,7 @@ created:
 models:
     User: { first: string, last: string, email: string, email_verified_at: 'timestamp nullable', github_username: 'string nullable', github_access_token: 'string nullable', url: 'string nullable', reset_hash: 'string nullable', verify_hash: 'string nullable', avatar: 'longtext nullable', password: 'string nullable', session_id: 'string nullable', city_id: 'biginteger unsigned nullable', admin: boolean, remember_token: 'string:100 nullable' }
     City: { name: string, url: 'string nullable', width: 'integer nullable', height: 'integer nullable', image: 'longtext nullable', date_at: timestamp, date_multiplier: 'integer default:1', user_id: integer, softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: User, belongsToMany: User } }
-    Square: { x: integer, 'y': integer, road: 'boolean default:0', road_rules: 'text nullable', track: 'boolean default:0', track_rules: 'text nullable', type: 'enum:ground,water default:ground', building_id: 'integer nullable', city_id: integer, relationships: { belongsTo: 'City, Building' } }
+    Square: { x: integer, 'y': integer, road: 'boolean default:0', road_rules: 'text nullable', track: 'boolean default:0', track_rules: 'text nullable', type: 'enum:ground,water,road default:ground', building_id: 'integer nullable', city_id: integer, relationships: { belongsTo: 'City, Building' } }
     Building: { name: 'string nullable', colour: 'string nullable', set: 'integer nullable', square_id: 'integer nullable', softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: Square, hasMany: Square } }
     Setting: { name: string, value: text, softdeletes: softDeletes, timestamps: timestamps }
     Invite: { email: string, invite_hash: 'string nullable', city_id: integer, user_id: integer, timestamps: timestamps, relationships: { belongsTo: 'City, User' } }

@@ -21,7 +21,7 @@ models:
     road_rules: text nullable
     track: boolean default:0
     track_rules: text nullable
-    type: enum:ground,water default:ground
+    type: enum:ground,water,road default:ground
     building_id: integer nullable
     city_id: integer
     relationships:

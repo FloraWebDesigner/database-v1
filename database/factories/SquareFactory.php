@@ -29,7 +29,7 @@ class SquareFactory extends Factory
             'road_rules' => $this->faker->text(),
             'track' => $this->faker->boolean(),
             'track_rules' => $this->faker->text(),
-            'type' => $this->faker->randomElement(["ground","water"]),
+            'type' => $this->faker->randomElement(["ground","water","road"]),
             'building_id' => ::factory(),
             'city_id' => City::factory(),
         ];
