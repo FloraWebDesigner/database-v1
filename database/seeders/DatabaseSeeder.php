@@ -11,6 +11,7 @@ use App\Models\Setting;
 use App\Models\Tag;
 use App\Models\Panel;
 use App\Models\Qr;
+use App\Models\Road;
 
 use Carbon\Carbon;
 
@@ -199,6 +200,8 @@ class DatabaseSeeder extends Seeder
             Panel::create($panel);
         }
 
+        // **************************************************
+        // Panels
         $qrs = [
             [
                 'name' => 'Reusable QR 1',
@@ -224,6 +227,12 @@ class DatabaseSeeder extends Seeder
         foreach ($qrs as $qr) {
             Qr::create($qr);
         }
+
+        // **************************************************
+        // Maps
+        Road::factory()->create(['name' => '39th Street']);
+        Road::factory()->create(['name' => 'Second Ave']);
+        Road::factory()->create(['name' => 'Diagon Alley']);
 
         /*
         // Radio - Schedules`
