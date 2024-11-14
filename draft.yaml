@@ -17,10 +17,10 @@ models:
   Square:
     x: integer
     y: integer
-    road_id: integer nullable
-    road_rules: text nullable
-    track_id: integer nullable
-    track_rules: text nullable
+    road_id: integer default:0
+    road_rules: string nullable
+    track_id: integer default:0
+    track_rules: string nullable
     type: enum:ground,water default:ground
     building_id: integer nullable
     city_id: integer
