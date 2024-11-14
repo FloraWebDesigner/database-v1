@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('square_images', function (Blueprint $table) {
             $table->id();
             $table->foreignId('square_id');
-            $table->enum('direction', ["n","e","s","w"]);
+            $table->enum('direction', ["north","east","south","west"]);
             $table->longText('image')->nullable();
             $table->timestamps();
         });

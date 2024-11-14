@@ -23,7 +23,7 @@ class SquareImageFactory extends Factory
     {
         return [
             'square_id' => Square::factory(),
-            'direction' => $this->faker->randomElement(["n","e","s","w"]),
+            'direction' => $this->faker->randomElement(["north","east","south","west"]),
             'image' => $this->faker->text(),
         ];
     }

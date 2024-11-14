@@ -30,7 +30,7 @@ models:
 
   SquareImage:
     square_id: integer
-    direction: enum:n,e,s,w
+    direction: enum:north,east,south,west
     image: longtext nullable
     relationships:
       belongsTo: Square
