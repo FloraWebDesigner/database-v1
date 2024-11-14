@@ -25,9 +25,9 @@ class SquareFactory extends Factory
         return [
             'x' => $this->faker->numberBetween(-10000, 10000),
             'y' => $this->faker->numberBetween(-10000, 10000),
-            'road' => $this->faker->boolean(),
+            'road_id' => $this->faker->numberBetween(-10000, 10000),
             'road_rules' => $this->faker->text(),
-            'track' => $this->faker->boolean(),
+            'track_id' => $this->faker->numberBetween(-10000, 10000),
             'track_rules' => $this->faker->text(),
             'type' => $this->faker->randomElement(["ground","water"]),
             'building_id' => ::factory(),

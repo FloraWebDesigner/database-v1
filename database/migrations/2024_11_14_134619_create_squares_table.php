@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('x');
             $table->integer('y');
-            $table->boolean('road')->default(0);
+            $table->integer('road_id')->nullable();
             $table->text('road_rules')->nullable();
-            $table->boolean('track')->default(0);
+            $table->integer('track_id')->nullable();
             $table->text('track_rules')->nullable();
             $table->enum('type', ["ground","water"])->default('ground');
             $table->foreignId('building_id')->nullable();

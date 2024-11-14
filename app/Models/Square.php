@@ -18,9 +18,9 @@ class Square extends Model
     protected $fillable = [
         'x',
         'y',
-        'road',
+        'road_id',
         'road_rules',
-        'track',
+        'track_id',
         'track_rules',
         'type',
         'building_id',
@@ -34,8 +34,6 @@ class Square extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'road' => 'boolean',
-        'track' => 'boolean',
         'building_id' => 'integer',
         'city_id' => 'integer',
     ];
