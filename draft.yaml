@@ -27,6 +27,14 @@ models:
     relationships:
       belongsTo: City, Building
 
+  Road:
+    name: string
+    city_id: integer
+    timestamps: true
+    relationships:
+      hasMany: Square
+      belongsTo: City
+
   Building:
     name: string nullable
     colour: string nullable

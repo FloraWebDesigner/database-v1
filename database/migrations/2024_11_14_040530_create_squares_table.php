@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('road_rules')->nullable();
             $table->boolean('track')->default(0);
             $table->text('track_rules')->nullable();
-            $table->enum('type', ["ground","water","road"])->default('ground');
+            $table->enum('type', ["ground","water"])->default('ground');
             $table->foreignId('building_id')->nullable();
             $table->foreignId('city_id');
             $table->timestamps();
