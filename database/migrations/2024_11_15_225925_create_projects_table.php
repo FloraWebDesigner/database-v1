@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('colours', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('rgb');
-            $table->string('is_trans');
-            $table->integer('rebrickable_id')->nullable();
+            $table->string('project_name');
+            $table->string('github')->nullable();
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('colours');
+        Schema::dropIfExists('projects');
     }
 };

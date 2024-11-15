@@ -230,3 +230,28 @@ models:
     timestamps: true
     relationships:
       belongsTo: Schedule, City
+
+  Project:
+    project_name: string
+    github: string nullable
+    description: text
+    timestamps: true
+
+  Task:
+    task_name: string
+    description: text
+    project_id: integer
+    timestamps: true
+    relationships:
+      belongsTo: Project
+
+  Timesheet:
+    date: date
+    hours_worked: decimal:4,2
+    description: TEXT,
+    user_id: integer
+    project_id: integer
+    task_id: integer
+    timestamps: true
+    relationships:
+      belongsTo: User, Project, Task

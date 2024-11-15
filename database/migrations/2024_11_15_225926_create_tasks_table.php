@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('panels', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('value')->nullable();
-            $table->enum('cartridge', ["red","blue","brown","yellow"])->nullable();
-            $table->enum('port', ["a","b","c","d","1","2","3","4"]);
-            $table->foreignId('city_id');
+            $table->string('task_name');
+            $table->text('description');
+            $table->foreignId('project_id');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('panels');
+        Schema::dropIfExists('tasks');
     }
 };

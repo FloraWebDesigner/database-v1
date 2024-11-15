@@ -11,14 +11,11 @@ use App\Models\Setting;
 use App\Models\Tag;
 use App\Models\Panel;
 use App\Models\Qr;
-<<<<<<< HEAD
 use App\Models\Schedule;
 use App\Models\Segment;
 use App\Models\ScheduleLog;
-=======
 use App\Models\Road;
 use App\Models\Track;
->>>>>>> c2e27b459107c6374e067edc26a3856c2241f432
 
 use Carbon\Carbon;
 
