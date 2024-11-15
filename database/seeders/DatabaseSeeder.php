@@ -11,6 +11,9 @@ use App\Models\Setting;
 use App\Models\Tag;
 use App\Models\Panel;
 use App\Models\Qr;
+use App\Models\Schedule;
+use App\Models\Segment;
+use App\Models\ScheduleLog;
 
 use Carbon\Carbon;
 
@@ -226,11 +229,20 @@ class DatabaseSeeder extends Seeder
         }
 
         // Radio - Schedules`
+        $segments = [
+            ['name' => 'Traffic'],
+            ['name' => 'Colours of the Day'],
+            ['name' => 'Set of the Day'],
+        ];
+
+        foreach ($segments as $segment) {
+            Segment::create($segment);
+        }
+
         $schedules = [
-            ['segment_id' => 1, 'time' => '06:00:00'],
-            ['segment_id' => 2, 'time' => '12:00:00'],
-            ['segment_id' => 3, 'time' => '18:00:00'],
-            ['segment_id' => 4, 'time' => '17:00:00'],
+            ['name' => 'Testing 1 - Traffic', 'segment_id' => 1, 'time' => '06:00:00', 'city_id' => 1],
+            ['name' => 'Testing 2 - Colour', 'segment_id' => 2, 'time' => '06:00:00', 'city_id' => 1],
+            ['name' => 'Testing 3 - Set', 'segment_id' => 3, 'time' => '06:00:00', 'city_id' => 1],
         ];
 
         foreach ($schedules as $schedule) {
@@ -238,6 +250,7 @@ class DatabaseSeeder extends Seeder
         }
 
         // Radio - Broadcast Logs
+        /*
         $broadcastLogs = [
             ['city_id' => 1, 'segment_id' => 1, 'broadcast_time' => Carbon::now()->toDateTimeString(), 'content' => 'Welcome to the Morning Talk Show on Brick City FM!'],
             ['city_id' => 1, 'segment_id' => 2, 'broadcast_time' => Carbon::now()->addHours(6)->toDateTimeString(), 'content' => 'Here are your top hits for lunch on Brick City FM!'],
@@ -247,6 +260,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($broadcastLogs as $log) {
             BroadcastLog::create($log);
-        }`
+        }
+        */
     }
 }

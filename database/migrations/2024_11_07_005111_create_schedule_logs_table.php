@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schedules', function (Blueprint $table) {
+        Schema::create('schedule_logs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('segment_id')->constrained('segments');
-            $table->time('time');
+            $table->string('name');
+            $table->text('script');
+            $table->foreignId('schedule_id');
+            $table->foreignId('city_id');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('schedule_logs');
     }
 };

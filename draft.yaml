@@ -182,3 +182,27 @@ models:
     timestamps: true
     relationships:
       belongsTo: Qr
+
+  Schedule:
+    name: string
+    segment_id: integer
+    city_id: integer
+    time: time
+    timestamps: true
+    relationships:
+      belongsTo: Segment, City
+      hasMany: ScheduleLog
+
+  Segment:
+    name: string
+    relationships:
+      hasMany: Schedule
+
+  ScheduleLog:
+    name: string
+    script: text
+    schedule_id: integet
+    city_id: integer
+    timestamps: true
+    relationships:
+      belongsTo: Schedule, City
