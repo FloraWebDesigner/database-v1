@@ -17,15 +17,39 @@ models:
   Square:
     x: integer
     y: integer
-    road: boolean default:0
-    road_rules: text nullable
-    track: boolean default:0
-    track_rules: text nullable
+    road_id: integer default:0
+    road_rules: string nullable
+    track_id: integer default:0
+    track_rules: string nullable
     type: enum:ground,water default:ground
     building_id: integer nullable
     city_id: integer
     relationships:
       belongsTo: City, Building
+      hasMany: SquareImage
+
+  SquareImage:
+    square_id: integer
+    direction: enum:north,east,south,west
+    image: longtext nullable
+    relationships:
+      belongsTo: Square
+
+  Road:
+    name: string
+    city_id: integer
+    timestamps: true
+    relationships:
+      hasMany: Square
+      belongsTo: City
+
+  Track:
+    name: string
+    city_id: integer
+    timestamps: true
+    relationships:
+      hasMany: Square
+      belongsTo: City
 
   Building:
     name: string nullable

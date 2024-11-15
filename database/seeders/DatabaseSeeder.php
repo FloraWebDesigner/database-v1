@@ -11,9 +11,14 @@ use App\Models\Setting;
 use App\Models\Tag;
 use App\Models\Panel;
 use App\Models\Qr;
+<<<<<<< HEAD
 use App\Models\Schedule;
 use App\Models\Segment;
 use App\Models\ScheduleLog;
+=======
+use App\Models\Road;
+use App\Models\Track;
+>>>>>>> c2e27b459107c6374e067edc26a3856c2241f432
 
 use Carbon\Carbon;
 
@@ -202,6 +207,8 @@ class DatabaseSeeder extends Seeder
             Panel::create($panel);
         }
 
+        // **************************************************
+        // Panels
         $qrs = [
             [
                 'name' => 'Reusable QR 1',
@@ -228,6 +235,19 @@ class DatabaseSeeder extends Seeder
             Qr::create($qr);
         }
 
+        // **************************************************
+        // Maps
+        Road::factory()->create(['name' => '39th Street']);
+        Road::factory()->create(['name' => 'Second Ave']);
+        Road::factory()->create(['name' => 'Diagon Alley']);
+
+        // **************************************************
+        // Tracks
+        Track::factory()->create(['name' => 'Main Rail']);
+        Track::factory()->create(['name' => 'Loading Dock West']);
+        Track::factory()->create(['name' => 'Loading Dock East']);
+
+        /*
         // Radio - Schedules`
         $segments = [
             ['name' => 'Traffic'],

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Square extends Model
+class Road extends Model
 {
     use HasFactory;
 
@@ -17,14 +17,7 @@ class Square extends Model
      * @var array
      */
     protected $fillable = [
-        'x',
-        'y',
-        'road_id',
-        'road_rules',
-        'track_id',
-        'track_rules',
-        'type',
-        'building_id',
+        'name',
         'city_id',
     ];
 
@@ -35,22 +28,16 @@ class Square extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'building_id' => 'integer',
         'city_id' => 'integer',
     ];
+
+    public function squares(): HasMany
+    {
+        return $this->hasMany(Square::class);
+    }
 
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
-    }
-
-    public function building(): BelongsTo
-    {
-        return $this->belongsTo(Building::class);
-    }
-
-    public function squareImages(): HasMany
-    {
-        return $this->hasMany(SquareImage::class);
     }
 }
