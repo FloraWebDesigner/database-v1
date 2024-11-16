@@ -20,58 +20,35 @@ created:
     - database/factories/PanelFactory.php
     - database/factories/QrFactory.php
     - database/factories/QrLogFactory.php
-<<<<<<< HEAD
     - database/factories/ScheduleFactory.php
     - database/factories/SegmentFactory.php
     - database/factories/ScheduleLogFactory.php
-    - database/migrations/2024_11_07_005051_create_cities_table.php
-    - database/migrations/2024_11_07_005052_create_squares_table.php
-    - database/migrations/2024_11_07_005053_create_buildings_table.php
-    - database/migrations/2024_11_07_005054_create_settings_table.php
-    - database/migrations/2024_11_07_005055_create_invites_table.php
-    - database/migrations/2024_11_07_005056_create_repos_table.php
-    - database/migrations/2024_11_07_005057_create_colours_table.php
-    - database/migrations/2024_11_07_005058_create_externals_table.php
-    - database/migrations/2024_11_07_005059_create_media_table.php
-    - database/migrations/2024_11_07_005100_create_media_downloads_table.php
-    - database/migrations/2024_11_07_005101_create_tags_table.php
-    - database/migrations/2024_11_07_005102_create_events_table.php
-    - database/migrations/2024_11_07_005103_create_participants_table.php
-    - database/migrations/2024_11_07_005104_create_countries_table.php
-    - database/migrations/2024_11_07_005105_create_stores_table.php
-    - database/migrations/2024_11_07_005106_create_panels_table.php
-    - database/migrations/2024_11_07_005107_create_qrs_table.php
-    - database/migrations/2024_11_07_005108_create_qr_logs_table.php
-    - database/migrations/2024_11_07_005109_create_schedules_table.php
-    - database/migrations/2024_11_07_005110_create_segments_table.php
-    - database/migrations/2024_11_07_005111_create_schedule_logs_table.php
-    - database/migrations/2024_11_07_005112_create_city_user_table.php
-    - database/migrations/2024_11_07_005113_create_media_tag_table.php
-=======
-    - database/migrations/2024_11_14_203210_create_cities_table.php
-    - database/migrations/2024_11_14_203211_create_squares_table.php
-    - database/migrations/2024_11_14_203212_create_square_images_table.php
-    - database/migrations/2024_11_14_203213_create_roads_table.php
-    - database/migrations/2024_11_14_203214_create_tracks_table.php
-    - database/migrations/2024_11_14_203215_create_buildings_table.php
-    - database/migrations/2024_11_14_203216_create_settings_table.php
-    - database/migrations/2024_11_14_203217_create_invites_table.php
-    - database/migrations/2024_11_14_203218_create_repos_table.php
-    - database/migrations/2024_11_14_203219_create_colours_table.php
-    - database/migrations/2024_11_14_203220_create_externals_table.php
-    - database/migrations/2024_11_14_203221_create_media_table.php
-    - database/migrations/2024_11_14_203222_create_media_downloads_table.php
-    - database/migrations/2024_11_14_203223_create_tags_table.php
-    - database/migrations/2024_11_14_203224_create_events_table.php
-    - database/migrations/2024_11_14_203225_create_participants_table.php
-    - database/migrations/2024_11_14_203226_create_countries_table.php
-    - database/migrations/2024_11_14_203227_create_stores_table.php
-    - database/migrations/2024_11_14_203228_create_panels_table.php
-    - database/migrations/2024_11_14_203229_create_qrs_table.php
-    - database/migrations/2024_11_14_203230_create_qr_logs_table.php
-    - database/migrations/2024_11_14_203231_create_city_user_table.php
-    - database/migrations/2024_11_14_203232_create_media_tag_table.php
->>>>>>> c2e27b459107c6374e067edc26a3856c2241f432
+    - database/migrations/2024_11_16_141557_create_cities_table.php
+    - database/migrations/2024_11_16_141558_create_squares_table.php
+    - database/migrations/2024_11_16_141559_create_square_images_table.php
+    - database/migrations/2024_11_16_141600_create_roads_table.php
+    - database/migrations/2024_11_16_141601_create_tracks_table.php
+    - database/migrations/2024_11_16_141602_create_buildings_table.php
+    - database/migrations/2024_11_16_141603_create_settings_table.php
+    - database/migrations/2024_11_16_141604_create_invites_table.php
+    - database/migrations/2024_11_16_141605_create_repos_table.php
+    - database/migrations/2024_11_16_141606_create_colours_table.php
+    - database/migrations/2024_11_16_141607_create_externals_table.php
+    - database/migrations/2024_11_16_141608_create_media_table.php
+    - database/migrations/2024_11_16_141609_create_media_downloads_table.php
+    - database/migrations/2024_11_16_141610_create_tags_table.php
+    - database/migrations/2024_11_16_141611_create_events_table.php
+    - database/migrations/2024_11_16_141612_create_participants_table.php
+    - database/migrations/2024_11_16_141613_create_countries_table.php
+    - database/migrations/2024_11_16_141614_create_stores_table.php
+    - database/migrations/2024_11_16_141615_create_panels_table.php
+    - database/migrations/2024_11_16_141616_create_qrs_table.php
+    - database/migrations/2024_11_16_141617_create_qr_logs_table.php
+    - database/migrations/2024_11_16_141618_create_schedules_table.php
+    - database/migrations/2024_11_16_141619_create_segments_table.php
+    - database/migrations/2024_11_16_141620_create_schedule_logs_table.php
+    - database/migrations/2024_11_16_141621_create_city_user_table.php
+    - database/migrations/2024_11_16_141622_create_media_tag_table.php
     - app/Models/City.php
     - app/Models/Square.php
     - app/Models/SquareImage.php
