@@ -11,7 +11,10 @@ use App\Models\Setting;
 use App\Models\Tag;
 use App\Models\Panel;
 use App\Models\Qr;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 860f37d75aaaa749b1a6085493de89e9d0077a49
 use App\Models\Schedule;
 use App\Models\Segment;
 use App\Models\ScheduleLog;
