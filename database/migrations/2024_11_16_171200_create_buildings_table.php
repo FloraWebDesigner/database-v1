@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('media', function (Blueprint $table) {
+        Schema::create('buildings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('approved')->default(0);
-            $table->enum('type', ["audio","image","video"]);
-            $table->foreignId('user_id')->nullable();
-            $table->foreignId('city_id')->nullable();
-            $table->string('google_id')->nullable();
+            $table->foreignId('city_id');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('media');
+        Schema::dropIfExists('buildings');
     }
 };

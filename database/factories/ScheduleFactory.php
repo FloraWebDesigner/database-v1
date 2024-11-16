@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\;
+use App\Models\City;
 use App\Models\Schedule;
 use App\Models\Segment;
 
@@ -25,7 +25,7 @@ class ScheduleFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'segment_id' => Segment::factory(),
-            'city_id' => ::factory(),
+            'city_id' => City::factory(),
             'time' => $this->faker->time(),
         ];
     }

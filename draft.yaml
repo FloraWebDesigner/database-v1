@@ -14,6 +14,14 @@ models:
       belongsTo: User
       belongsToMany: User
 
+  Building:
+    name: string
+    city_id: integer
+    timestamps: true
+    relationships:
+      belongsTo: City
+      hasMany: Square
+
   Square:
     x: integer
     y: integer
@@ -25,7 +33,7 @@ models:
     building_id: integer nullable
     city_id: integer
     relationships:
-      belongsTo: City, Building
+      belongsTo: City,Road,Track,Building
       hasMany: SquareImage
 
   SquareImage:
@@ -51,17 +59,6 @@ models:
       hasMany: Square
       belongsTo: City
 
-  Building:
-    name: string nullable
-    colour: string nullable
-    set: integer nullable
-    square_id: integer nullable
-    softDeletes: true
-    timestamps: true
-    relationships:
-      belongsTo: Square
-      hasMany: Square
-
   Setting:
     name: string
     value: text
@@ -75,7 +72,7 @@ models:
     user_id: integer
     timestamps: true
     relationships:
-      belongsTo: City, User
+      belongsTo: City,User
 
   Repo:
     name: string
@@ -120,7 +117,7 @@ models:
     softDeletes: true
     timestamps: true
     relationships:
-      belongsTo: User, City
+      belongsTo: User,City
       belongsToMany: Tag
 
   MediaDownload:
@@ -128,7 +125,7 @@ models:
     user_id: integer nullable
     timestamps: true
     relationships:
-      belongsTo: User, Media
+      belongsTo: User,Media
 
   Tag:
     name: string
@@ -156,7 +153,7 @@ models:
     email: string
     event_id: integer nullable
     indexes:
-      - unique: email, event_id
+      - unique: email,event_id
     timestamps: true
     relationships:
       belongsTo: Event
@@ -214,7 +211,7 @@ models:
     time: time
     timestamps: true
     relationships:
-      belongsTo: Segment, City
+      belongsTo: Segment,City
       hasMany: ScheduleLog
 
   Segment:
@@ -229,7 +226,7 @@ models:
     city_id: integer
     timestamps: true
     relationships:
-      belongsTo: Schedule, City
+      belongsTo: Schedule,City
 
   Project:
     project_name: string
@@ -254,4 +251,4 @@ models:
     task_id: integer
     timestamps: true
     relationships:
-      belongsTo: User, Project, Task
+      belongsTo: User,Project,Task

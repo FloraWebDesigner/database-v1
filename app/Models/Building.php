@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Building extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -19,9 +18,7 @@ class Building extends Model
      */
     protected $fillable = [
         'name',
-        'colour',
-        'set',
-        'square_id',
+        'city_id',
     ];
 
     /**
@@ -31,12 +28,12 @@ class Building extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'square_id' => 'integer',
+        'city_id' => 'integer',
     ];
 
-    public function square(): BelongsTo
+    public function city(): BelongsTo
     {
-        return $this->belongsTo(Square::class);
+        return $this->belongsTo(City::class);
     }
 
     public function squares(): HasMany

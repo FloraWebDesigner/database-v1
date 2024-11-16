@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\;
+use App\Models\Media;
 use App\Models\MediaDownload;
 use App\Models\User;
 
@@ -23,7 +23,7 @@ class MediaDownloadFactory extends Factory
     public function definition(): array
     {
         return [
-            'media_id' => ::factory(),
+            'media_id' => Media::factory(),
             'user_id' => User::factory(),
         ];
     }

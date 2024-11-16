@@ -11,15 +11,13 @@ use App\Models\Setting;
 use App\Models\Tag;
 use App\Models\Panel;
 use App\Models\Qr;
-<<<<<<< HEAD
-
-=======
->>>>>>> 860f37d75aaaa749b1a6085493de89e9d0077a49
 use App\Models\Schedule;
 use App\Models\Segment;
 use App\Models\ScheduleLog;
 use App\Models\Road;
 use App\Models\Track;
+use App\Models\Square;
+use App\Models\SqureImage;
 
 use Carbon\Carbon;
 
@@ -83,6 +81,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $city->users()->save($user);
+
+        // **************************************************
+        // Squares
+        
+
 
         // **************************************************
         // Tags
@@ -236,17 +239,46 @@ class DatabaseSeeder extends Seeder
             Qr::create($qr);
         }
 
+        
         // **************************************************
         // Maps
-        Road::factory()->create(['name' => '39th Street']);
-        Road::factory()->create(['name' => 'Second Ave']);
-        Road::factory()->create(['name' => 'Diagon Alley']);
+        // Copied from http://local.console.brickmmo.com:7777/maps/export
+
 
         // **************************************************
-        // Tracks
-        Track::factory()->create(['name' => 'Main Rail']);
-        Track::factory()->create(['name' => 'Loading Dock West']);
-        Track::factory()->create(['name' => 'Loading Dock East']);
+        // **************************************************
+        // **************************************************
+
+
+
+
+
+
+
+// **************************************************
+// Roads
+Road::factory()->create(["id" => "1","name" => "39th Street","city_id" => "1","created_at" => "2024-11-16 14:21:03","updated_at" => "2024-11-16 14:21:03",]);
+Road::factory()->create(["id" => "2","name" => "Second Ave","city_id" => "1","created_at" => "2024-11-16 14:21:03","updated_at" => "2024-11-16 14:21:03",]);
+Road::factory()->create(["id" => "3","name" => "Diagon Alley","city_id" => "1","created_at" => "2024-11-16 14:21:03","updated_at" => "2024-11-16 14:21:03",]);
+
+
+// **************************************************
+// Tracks
+Track::factory()->create(["id" => "1","name" => "Main Rail","city_id" => "1","created_at" => "2024-11-16 14:21:03","updated_at" => "2024-11-16 14:21:03",]);
+Track::factory()->create(["id" => "2","name" => "Loading Dock West","city_id" => "1","created_at" => "2024-11-16 14:21:03","updated_at" => "2024-11-16 14:21:03",]);
+Track::factory()->create(["id" => "3","name" => "Loading Dock East","city_id" => "1","created_at" => "2024-11-16 14:21:03","updated_at" => "2024-11-16 14:21:03",]);
+
+
+// **************************************************
+// Squares
+Square::factory()->create();
+
+
+        // **************************************************
+        // **************************************************
+        // **************************************************
+
+        
 
         /*
         // Radio - Schedules`

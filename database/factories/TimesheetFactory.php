@@ -4,7 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\;
+use App\Models\Project;
+use App\Models\Task;
 use App\Models\Timesheet;
 use App\Models\User;
 
@@ -27,8 +28,8 @@ class TimesheetFactory extends Factory
             'hours_worked' => $this->faker->randomFloat(2, 0, 99.99),
             'description' => $this->faker->text(),
             'user_id' => User::factory(),
-            'project_id' => ::factory(),
-            'task_id' => ::factory(),
+            'project_id' => Project::factory(),
+            'task_id' => Task::factory(),
         ];
     }
 }

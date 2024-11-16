@@ -35,6 +35,8 @@ class Square extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'road_id' => 'integer',
+        'track_id' => 'integer',
         'building_id' => 'integer',
         'city_id' => 'integer',
     ];
@@ -42,6 +44,16 @@ class Square extends Model
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function road(): BelongsTo
+    {
+        return $this->belongsTo(Road::class);
+    }
+
+    public function track(): BelongsTo
+    {
+        return $this->belongsTo(Track::class);
     }
 
     public function building(): BelongsTo

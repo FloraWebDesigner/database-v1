@@ -4,9 +4,9 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\;
 use App\Models\City;
 use App\Models\Invite;
+use App\Models\User;
 
 class InviteFactory extends Factory
 {
@@ -26,7 +26,7 @@ class InviteFactory extends Factory
             'email' => $this->faker->safeEmail(),
             'invite_hash' => $this->faker->word(),
             'city_id' => City::factory(),
-            'user_id' => ::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

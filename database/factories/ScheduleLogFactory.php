@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\;
+use App\Models\City;
 use App\Models\Schedule;
 use App\Models\ScheduleLog;
 
@@ -26,7 +26,7 @@ class ScheduleLogFactory extends Factory
             'name' => $this->faker->name(),
             'script' => $this->faker->text(),
             'schedule_id' => Schedule::factory(),
-            'city_id' => ::factory(),
+            'city_id' => City::factory(),
         ];
     }
 }

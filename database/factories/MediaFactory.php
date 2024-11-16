@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\;
+use App\Models\City;
 use App\Models\Media;
 use App\Models\User;
 
@@ -27,7 +27,7 @@ class MediaFactory extends Factory
             'approved' => $this->faker->boolean(),
             'type' => $this->faker->randomElement(["audio","image","video"]),
             'user_id' => User::factory(),
-            'city_id' => ::factory(),
+            'city_id' => City::factory(),
             'google_id' => $this->faker->word(),
         ];
     }
