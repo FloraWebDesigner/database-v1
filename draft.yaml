@@ -25,16 +25,15 @@ models:
   Square:
     x: integer
     y: integer
-    road_id: integer default:0
     road_rules: string nullable
-    track_id: integer default:0
     track_rules: string nullable
     type: enum:ground,water default:ground
-    building_id: integer nullable
+    building_id: integer default:0
     city_id: integer
     relationships:
-      belongsTo: City,Road,Track,Building
+      belongsTo: City,Track,Building
       hasMany: SquareImage
+      belongsToMany: Road,Track
 
   SquareImage:
     square_id: integer
@@ -48,7 +47,7 @@ models:
     city_id: integer
     timestamps: true
     relationships:
-      hasMany: Square
+      belongsToMany: Square
       belongsTo: City
 
   Track:
@@ -56,7 +55,7 @@ models:
     city_id: integer
     timestamps: true
     relationships:
-      hasMany: Square
+      belongsToMany: Square
       belongsTo: City
 
   Setting:

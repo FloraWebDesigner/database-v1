@@ -15,13 +15,12 @@ return new class extends Migration
             $table->id();
             $table->integer('x');
             $table->integer('y');
-            $table->foreignId('road_id')->default('0');
             $table->string('road_rules')->nullable();
-            $table->foreignId('track_id')->default('0');
             $table->string('track_rules')->nullable();
             $table->enum('type', ["ground","water"])->default('ground');
-            $table->foreignId('building_id')->nullable();
+            $table->foreignId('building_id')->default('0');
             $table->foreignId('city_id');
+            $table->foreignId('track_id');
             $table->timestamps();
         });
     }
