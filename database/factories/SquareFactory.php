@@ -7,7 +7,6 @@ use Illuminate\Support\Str;
 use App\Models\Building;
 use App\Models\City;
 use App\Models\Square;
-use App\Models\Track;
 
 class SquareFactory extends Factory
 {
@@ -31,7 +30,6 @@ class SquareFactory extends Factory
             'type' => $this->faker->randomElement(["ground","water"]),
             'building_id' => Building::factory(),
             'city_id' => City::factory(),
-            'track_id' => Track::factory(),
         ];
     }
 }

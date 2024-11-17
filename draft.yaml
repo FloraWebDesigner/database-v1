@@ -31,7 +31,7 @@ models:
     building_id: integer default:0
     city_id: integer
     relationships:
-      belongsTo: City,Track,Building
+      belongsTo: City,Building
       hasMany: SquareImage
       belongsToMany: Road,Track
 

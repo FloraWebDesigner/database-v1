@@ -20,7 +20,6 @@ return new class extends Migration
             $table->enum('type', ["ground","water"])->default('ground');
             $table->foreignId('building_id')->default('0');
             $table->foreignId('city_id');
-            $table->foreignId('track_id');
             $table->timestamps();
         });
     }

@@ -25,7 +25,6 @@ class Square extends Model
         'type',
         'building_id',
         'city_id',
-        'track_id',
     ];
 
     /**
@@ -37,17 +36,11 @@ class Square extends Model
         'id' => 'integer',
         'building_id' => 'integer',
         'city_id' => 'integer',
-        'track_id' => 'integer',
     ];
 
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
-    }
-
-    public function track(): BelongsTo
-    {
-        return $this->belongsTo(Track::class);
     }
 
     public function building(): BelongsTo
