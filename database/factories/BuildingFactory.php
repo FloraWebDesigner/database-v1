@@ -25,6 +25,7 @@ class BuildingFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'set' => $this->faker->word(),
+            'colour' => $this->faker->word(),
             'number' => $this->faker->numberBetween(-10000, 10000),
             'road_id' => Road::factory(),
             'city_id' => City::factory(),

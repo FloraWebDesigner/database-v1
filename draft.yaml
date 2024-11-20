@@ -17,7 +17,7 @@ models:
   Building:
     name: string
     set: string nullable
-    colours: string nullable
+    colour: string nullable
     number: integer nullable
     road_id: integer nullable
     city_id: integer

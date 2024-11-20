@@ -19,6 +19,7 @@ class Building extends Model
     protected $fillable = [
         'name',
         'set',
+        'colour',
         'number',
         'road_id',
         'city_id',

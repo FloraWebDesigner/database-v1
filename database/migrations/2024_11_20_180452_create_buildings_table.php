@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('set')->nullable();
+            $table->string('colour')->nullable();
             $table->integer('number')->nullable();
             $table->foreignId('road_id')->nullable();
             $table->foreignId('city_id');
