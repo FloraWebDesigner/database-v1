@@ -255,3 +255,9 @@ models:
     timestamps: true
     relationships:
       belongsTo: User,Project,Task
+
+  Coord:
+    type: enum:car,train
+    x: integer
+    y: integer
+    timestamps: true
