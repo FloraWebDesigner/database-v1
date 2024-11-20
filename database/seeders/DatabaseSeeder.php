@@ -101,7 +101,7 @@ class DatabaseSeeder extends Seeder
         $settings = array(
             [
                 'name' => 'GITHUB_ACCOUNTS',
-                'value' => 'codeadamca, BrickMMO',
+                'value' => 'codeadamca,BrickMMO',
             ],[
                 'name' => 'GITHUB_LAST_IMPORT',
                 'value' => '2024-07-18 13:25:36',
