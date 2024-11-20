@@ -16,10 +16,14 @@ models:
 
   Building:
     name: string
+    set: string nullable
+    colours: string nullable
+    number: integer nullable
+    road_id: integer nullable
     city_id: integer
     timestamps: true
     relationships:
-      belongsTo: City
+      belongsTo: City,Road
       hasMany: Square
 
   Square:

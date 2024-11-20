@@ -18,6 +18,9 @@ class Building extends Model
      */
     protected $fillable = [
         'name',
+        'set',
+        'number',
+        'road_id',
         'city_id',
     ];
 
@@ -28,12 +31,18 @@ class Building extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'road_id' => 'integer',
         'city_id' => 'integer',
     ];
 
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function road(): BelongsTo
+    {
+        return $this->belongsTo(Road::class);
     }
 
     public function squares(): HasMany

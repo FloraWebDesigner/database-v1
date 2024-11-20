@@ -26,37 +26,37 @@ created:
     - database/factories/ProjectFactory.php
     - database/factories/TaskFactory.php
     - database/factories/TimesheetFactory.php
-    - database/migrations/2024_11_17_035132_create_cities_table.php
-    - database/migrations/2024_11_17_035133_create_buildings_table.php
-    - database/migrations/2024_11_17_035134_create_squares_table.php
-    - database/migrations/2024_11_17_035135_create_square_images_table.php
-    - database/migrations/2024_11_17_035136_create_roads_table.php
-    - database/migrations/2024_11_17_035137_create_tracks_table.php
-    - database/migrations/2024_11_17_035138_create_settings_table.php
-    - database/migrations/2024_11_17_035139_create_invites_table.php
-    - database/migrations/2024_11_17_035140_create_repos_table.php
-    - database/migrations/2024_11_17_035141_create_colours_table.php
-    - database/migrations/2024_11_17_035142_create_externals_table.php
-    - database/migrations/2024_11_17_035143_create_media_table.php
-    - database/migrations/2024_11_17_035144_create_media_downloads_table.php
-    - database/migrations/2024_11_17_035145_create_tags_table.php
-    - database/migrations/2024_11_17_035146_create_events_table.php
-    - database/migrations/2024_11_17_035147_create_participants_table.php
-    - database/migrations/2024_11_17_035148_create_countries_table.php
-    - database/migrations/2024_11_17_035149_create_stores_table.php
-    - database/migrations/2024_11_17_035150_create_panels_table.php
-    - database/migrations/2024_11_17_035151_create_qrs_table.php
-    - database/migrations/2024_11_17_035152_create_qr_logs_table.php
-    - database/migrations/2024_11_17_035153_create_schedules_table.php
-    - database/migrations/2024_11_17_035154_create_segments_table.php
-    - database/migrations/2024_11_17_035155_create_schedule_logs_table.php
-    - database/migrations/2024_11_17_035156_create_projects_table.php
-    - database/migrations/2024_11_17_035157_create_tasks_table.php
-    - database/migrations/2024_11_17_035158_create_timesheets_table.php
-    - database/migrations/2024_11_17_035159_create_city_user_table.php
-    - database/migrations/2024_11_17_035200_create_road_square_table.php
-    - database/migrations/2024_11_17_035201_create_square_track_table.php
-    - database/migrations/2024_11_17_035202_create_media_tag_table.php
+    - database/migrations/2024_11_20_163851_create_cities_table.php
+    - database/migrations/2024_11_20_163852_create_buildings_table.php
+    - database/migrations/2024_11_20_163853_create_squares_table.php
+    - database/migrations/2024_11_20_163854_create_square_images_table.php
+    - database/migrations/2024_11_20_163855_create_roads_table.php
+    - database/migrations/2024_11_20_163856_create_tracks_table.php
+    - database/migrations/2024_11_20_163857_create_settings_table.php
+    - database/migrations/2024_11_20_163858_create_invites_table.php
+    - database/migrations/2024_11_20_163859_create_repos_table.php
+    - database/migrations/2024_11_20_163900_create_colours_table.php
+    - database/migrations/2024_11_20_163901_create_externals_table.php
+    - database/migrations/2024_11_20_163902_create_media_table.php
+    - database/migrations/2024_11_20_163903_create_media_downloads_table.php
+    - database/migrations/2024_11_20_163904_create_tags_table.php
+    - database/migrations/2024_11_20_163905_create_events_table.php
+    - database/migrations/2024_11_20_163906_create_participants_table.php
+    - database/migrations/2024_11_20_163907_create_countries_table.php
+    - database/migrations/2024_11_20_163908_create_stores_table.php
+    - database/migrations/2024_11_20_163909_create_panels_table.php
+    - database/migrations/2024_11_20_163910_create_qrs_table.php
+    - database/migrations/2024_11_20_163911_create_qr_logs_table.php
+    - database/migrations/2024_11_20_163912_create_schedules_table.php
+    - database/migrations/2024_11_20_163913_create_segments_table.php
+    - database/migrations/2024_11_20_163914_create_schedule_logs_table.php
+    - database/migrations/2024_11_20_163915_create_projects_table.php
+    - database/migrations/2024_11_20_163916_create_tasks_table.php
+    - database/migrations/2024_11_20_163917_create_timesheets_table.php
+    - database/migrations/2024_11_20_163918_create_city_user_table.php
+    - database/migrations/2024_11_20_163919_create_road_square_table.php
+    - database/migrations/2024_11_20_163920_create_square_track_table.php
+    - database/migrations/2024_11_20_163921_create_media_tag_table.php
     - app/Models/City.php
     - app/Models/Building.php
     - app/Models/Square.php
@@ -87,7 +87,7 @@ created:
 models:
     User: { first: string, last: string, email: string, email_verified_at: 'timestamp nullable', github_username: 'string nullable', github_access_token: 'string nullable', url: 'string nullable', reset_hash: 'string nullable', verify_hash: 'string nullable', avatar: 'longtext nullable', password: 'string nullable', session_id: 'string nullable', city_id: 'biginteger unsigned nullable', admin: boolean, remember_token: 'string:100 nullable' }
     City: { name: string, url: 'string nullable', width: 'integer nullable', height: 'integer nullable', image: 'longtext nullable', date_at: timestamp, date_multiplier: 'integer default:1', user_id: integer, softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: User, belongsToMany: User } }
-    Building: { name: string, city_id: integer, timestamps: timestamps, relationships: { belongsTo: City, hasMany: Square } }
+    Building: { name: string, set: 'string nullable', number: 'integer nullable', road_id: 'integer nullable', city_id: integer, timestamps: timestamps, relationships: { belongsTo: 'City,Road', hasMany: Square } }
     Square: { x: integer, 'y': integer, road_rules: 'string nullable', track_rules: 'string nullable', type: 'enum:ground,water default:ground', building_id: 'integer default:0', city_id: integer, relationships: { belongsTo: 'City,Building', hasMany: SquareImage, belongsToMany: 'Road,Track' } }
     SquareImage: { square_id: integer, direction: 'enum:north,east,south,west', image: 'longtext nullable', relationships: { belongsTo: Square } }
     Road: { name: string, city_id: integer, timestamps: timestamps, relationships: { belongsToMany: Square, belongsTo: City } }
