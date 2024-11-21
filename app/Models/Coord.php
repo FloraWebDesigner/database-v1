@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Segment extends Model
+class Coord extends Model
 {
     use HasFactory;
 
@@ -16,7 +16,10 @@ class Segment extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'type',
+        'x',
+        'y',
+        'city_id',
     ];
 
     /**
@@ -26,10 +29,11 @@ class Segment extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'city_id' => 'integer',
     ];
 
-    public function schedules(): HasMany
+    public function city(): BelongsTo
     {
-        return $this->hasMany(Schedule::class);
+        return $this->belongsTo(City::class);
     }
 }

@@ -18,9 +18,9 @@ class Schedule extends Model
      */
     protected $fillable = [
         'name',
-        'segment_id',
+        'minute',
         'city_id',
-        'time',
+        'type_id',
     ];
 
     /**
@@ -30,14 +30,8 @@ class Schedule extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'segment_id' => 'integer',
         'city_id' => 'integer',
     ];
-
-    public function segment(): BelongsTo
-    {
-        return $this->belongsTo(Segment::class);
-    }
 
     public function city(): BelongsTo
     {

@@ -11,14 +11,15 @@ use App\Models\Setting;
 use App\Models\Tag;
 use App\Models\Panel;
 use App\Models\Qr;
-use App\Models\Schedule;
-use App\Models\Segment;
-use App\Models\ScheduleLog;
 use App\Models\Road;
 use App\Models\Track;
 use App\Models\Square;
 use App\Models\SqureImage;
 use App\Models\Building;
+
+use App\Models\Schedule;
+use App\Models\ScheduleType;
+use App\Models\ScheduleLog;
 
 use Carbon\Carbon;
 
@@ -30,6 +31,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        
 
         // **************************************************
         // Ussers
@@ -238,6 +241,25 @@ class DatabaseSeeder extends Seeder
 
         foreach ($qrs as $qr) {
             Qr::create($qr);
+        }
+
+        // **************************************************
+        // Radio
+        $types = array(
+            array('name' => 'Bricksum Word of the Day', 'filename' => 'bricksum.php'),
+            array('name' => 'Brix Feature', 'filename' => 'brix.php'),
+            array('name' => 'Colour of the Day', 'filename' => 'colour.php'),
+            array('name' => 'Control Panel', 'filename' => 'panel.php'),
+            array('name' => 'Crypto Update', 'filename' => 'crypto.php'),
+            array('name' => 'Featured Store', 'filename' => 'store.php'),
+            array('name' => 'Place of the Day', 'filename' => 'places.php'),
+            array('name' => 'QR Code', 'filename' => 'qr.php'),
+            array('name' => 'Traffic', 'filename' => 'traffic.php'),
+            array('name' => 'Upcoming Events', 'filename' => 'events.php'),
+        );
+
+        foreach ($types as $type) {
+            ScheduleType::create($type);
         }
 
         

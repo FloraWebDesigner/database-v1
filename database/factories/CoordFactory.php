@@ -5,17 +5,16 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\City;
-use App\Models\Schedule;
-use App\Models\ScheduleLog;
+use App\Models\Coord;
 
-class ScheduleLogFactory extends Factory
+class CoordFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = ScheduleLog::class;
+    protected $model = Coord::class;
 
     /**
      * Define the model's default state.
@@ -23,11 +22,10 @@ class ScheduleLogFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'script' => $this->faker->text(),
-            'schedule_id' => Schedule::factory(),
+            'type' => $this->faker->randomElement(["car","train"]),
+            'x' => $this->faker->numberBetween(-10000, 10000),
+            'y' => $this->faker->numberBetween(-10000, 10000),
             'city_id' => City::factory(),
-            'played_at' => $this->faker->dateTime(),
         ];
     }
 }

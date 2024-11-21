@@ -4,16 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Segment;
+use App\Models\ScheduleType;
 
-class SegmentFactory extends Factory
+class ScheduleTypeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Segment::class;
+    protected $model = ScheduleType::class;
 
     /**
      * Define the model's default state.
@@ -22,6 +22,7 @@ class SegmentFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'filename' => $this->faker->word(),
         ];
     }
 }

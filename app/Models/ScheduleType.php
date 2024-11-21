@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class ScheduleLog extends Model
+class ScheduleType extends Model
 {
     use HasFactory;
 
@@ -17,10 +17,7 @@ class ScheduleLog extends Model
      */
     protected $fillable = [
         'name',
-        'script',
-        'schedule_id',
-        'city_id',
-        'played_at',
+        'filename',
     ];
 
     /**
@@ -30,18 +27,10 @@ class ScheduleLog extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'schedule_id' => 'integer',
-        'city_id' => 'integer',
-        'played_at' => 'datetime',
     ];
 
-    public function schedule(): BelongsTo
+    public function schedules(): HasMany
     {
-        return $this->belongsTo(Schedule::class);
-    }
-
-    public function city(): BelongsTo
-    {
-        return $this->belongsTo(City::class);
+        return $this->hasMany(Schedule::class);
     }
 }

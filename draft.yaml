@@ -209,24 +209,26 @@ models:
 
   Schedule:
     name: string
-    segment_id: integer
+    minute: integer
     city_id: integer
-    time: time
+    type_id: integer
     timestamps: true
     relationships:
-      belongsTo: Segment,City
+      belongsTo: City
       hasMany: ScheduleLog
 
-  Segment:
+  ScheduleType:
     name: string
+    filename: string
     relationships:
       hasMany: Schedule
 
   ScheduleLog:
     name: string
     script: text
-    schedule_id: integet
+    schedule_id: integer
     city_id: integer
+    played_at: datetime
     timestamps: true
     relationships:
       belongsTo: Schedule,City
@@ -260,4 +262,7 @@ models:
     type: enum:car,train
     x: integer
     y: integer
+    city_id: integer
     timestamps: true
+    relationships:
+      belongsTo: City

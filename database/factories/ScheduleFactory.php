@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\City;
 use App\Models\Schedule;
-use App\Models\Segment;
 
 class ScheduleFactory extends Factory
 {
@@ -24,9 +23,9 @@ class ScheduleFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'segment_id' => Segment::factory(),
+            'minute' => $this->faker->numberBetween(-10000, 10000),
             'city_id' => City::factory(),
-            'time' => $this->faker->time(),
+            'type_id' => $this->faker->numberBetween(-10000, 10000),
         ];
     }
 }
