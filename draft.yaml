@@ -228,7 +228,8 @@ models:
     script: text
     schedule_id: integer
     city_id: integer
-    played_at: datetime
+    play_at: datetime
+    status: enum:queued,played default:queued
     timestamps: true
     relationships:
       belongsTo: Schedule,City
