@@ -23,7 +23,7 @@ class ScheduleFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'minute' => $this->faker->numberBetween(-10000, 10000),
+            'minute' => $this->faker->word(),
             'city_id' => City::factory(),
             'type_id' => $this->faker->numberBetween(-10000, 10000),
         ];

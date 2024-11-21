@@ -32,10 +32,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        
-
         // **************************************************
-        // Ussers
+        // Users
         $user = User::factory()->create([
             'first' => 'Doe',
             'last' => 'Thomas',

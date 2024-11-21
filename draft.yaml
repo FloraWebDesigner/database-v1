@@ -209,7 +209,7 @@ models:
 
   Schedule:
     name: string
-    minute: integer
+    minute: string
     city_id: integer
     type_id: integer
     timestamps: true
