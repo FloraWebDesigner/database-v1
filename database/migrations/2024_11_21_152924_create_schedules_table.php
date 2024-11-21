@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('minute');
             $table->foreignId('city_id');
             $table->integer('type_id');

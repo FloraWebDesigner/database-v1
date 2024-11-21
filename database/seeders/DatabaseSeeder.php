@@ -244,22 +244,44 @@ class DatabaseSeeder extends Seeder
         // **************************************************
         // Radio
         $types = array(
-            array('name' => 'Bricksum Word of the Day', 'filename' => 'bricksum.php'),
-            array('name' => 'Brix Feature', 'filename' => 'brix.php'),
-            array('name' => 'Colour of the Day', 'filename' => 'colour.php'),
-            array('name' => 'Control Panel', 'filename' => 'panel.php'),
-            array('name' => 'Crypto Update', 'filename' => 'crypto.php'),
-            array('name' => 'Featured Store', 'filename' => 'store.php'),
-            array('name' => 'Place of the Day', 'filename' => 'places.php'),
-            array('name' => 'QR Code', 'filename' => 'qr.php'),
-            array('name' => 'Traffic', 'filename' => 'traffic.php'),
-            array('name' => 'Upcoming Events', 'filename' => 'events.php'),
+            array('id' => 1, 'name' => 'Bricksum Word of the Day', 'length' => 1, 'filename' => 'bricksum.php'),
+            array('id' => 2, 'name' => 'Brix Feature', 'length' => 1, 'filename' => 'brix.php'),
+            array('id' => 3, 'name' => 'City Update', 'length' => 3, 'filename' => 'city.php'),
+            array('id' => 4, 'name' => 'Clock Update', 'length' => 1, 'filename' => 'clock.php'),
+            array('id' => 5, 'name' => 'Colour of the Day', 'length' => 1, 'filename' => 'colour.php'),
+            array('id' => 6, 'name' => 'Commercial', 'length' => 1, 'filename' => 'commercial.php'),
+            array('id' => 7, 'name' => 'Control Panel Update', 'length' => 1, 'filename' => 'panel.php'),
+            array('id' => 8, 'name' => 'Crypto Update', 'length' => 2, 'filename' => 'crypto.php'),
+            array('id' => 9, 'name' => 'Featured Store', 'length' => 2, 'filename' => 'store.php'),
+            array('id' => 10, 'name' => 'News Story', 'length' => 2, 'filename' => 'news.php'),
+            array('id' => 11, 'name' => 'Place of the Day', 'length' => 1, 'filename' => 'places.php'),
+            array('id' => 12, 'name' => 'QR Code', 'length' => 1, 'filename' => 'qr.php'),
+            array('id' => 13, 'name' => 'Traffic', 'length' => 1, 'filename' => 'traffic.php'),
+            array('id' => 14, 'name' => 'Upcoming Events', 'length' => 2, 'filename' => 'events.php'),
         );
 
         foreach ($types as $type) {
             ScheduleType::create($type);
         }
 
+        $schedules = array(
+            array('minute' => '00', 'city_id' => 1, 'type_id' => 4), // Clock - 1
+            array('minute' => '01', 'city_id' => 1, 'type_id' => 3), // Bricksum - 3
+            array('minute' => '02', 'city_id' => 1, 'type_id' => 2), // City
+            array('minute' => '05', 'city_id' => 1, 'type_id' => 13), // Traffic - 1
+            array('minute' => '06', 'city_id' => 1, 'type_id' => 6), // Commercial - 1
+            array('minute' => '07', 'city_id' => 1, 'type_id' => 12), // Brix - 1
+            array('minute' => '08', 'city_id' => 1, 'type_id' => 10), // Place - 2
+            array('minute' => '10', 'city_id' => 1, 'type_id' => 7), // Colour - 2
+            array('minute' => '11', 'city_id' => 1, 'type_id' => 10), // Crypto
+            array('minute' => '12', 'city_id' => 1, 'type_id' => 6), // QR Code - 1
+            array('minute' => '13', 'city_id' => 1, 'type_id' => 6), // Commercial - 1
+            array('minute' => '14', 'city_id' => 1, 'type_id' => 11), // Panel
+        );
+
+        foreach ($schedules as $schedule) {
+            Schedule::create($schedule);
+        }
         
         // **************************************************
         // Maps

@@ -27,38 +27,40 @@ created:
     - database/factories/TaskFactory.php
     - database/factories/TimesheetFactory.php
     - database/factories/CoordFactory.php
-    - database/migrations/2024_11_21_015639_create_cities_table.php
-    - database/migrations/2024_11_21_015640_create_buildings_table.php
-    - database/migrations/2024_11_21_015641_create_squares_table.php
-    - database/migrations/2024_11_21_015642_create_square_images_table.php
-    - database/migrations/2024_11_21_015643_create_roads_table.php
-    - database/migrations/2024_11_21_015644_create_tracks_table.php
-    - database/migrations/2024_11_21_015645_create_settings_table.php
-    - database/migrations/2024_11_21_015646_create_invites_table.php
-    - database/migrations/2024_11_21_015647_create_repos_table.php
-    - database/migrations/2024_11_21_015648_create_colours_table.php
-    - database/migrations/2024_11_21_015649_create_externals_table.php
-    - database/migrations/2024_11_21_015650_create_media_table.php
-    - database/migrations/2024_11_21_015651_create_media_downloads_table.php
-    - database/migrations/2024_11_21_015652_create_tags_table.php
-    - database/migrations/2024_11_21_015653_create_events_table.php
-    - database/migrations/2024_11_21_015654_create_participants_table.php
-    - database/migrations/2024_11_21_015655_create_countries_table.php
-    - database/migrations/2024_11_21_015656_create_stores_table.php
-    - database/migrations/2024_11_21_015657_create_panels_table.php
-    - database/migrations/2024_11_21_015658_create_qrs_table.php
-    - database/migrations/2024_11_21_015659_create_qr_logs_table.php
-    - database/migrations/2024_11_21_015700_create_schedules_table.php
-    - database/migrations/2024_11_21_015701_create_schedule_types_table.php
-    - database/migrations/2024_11_21_015702_create_schedule_logs_table.php
-    - database/migrations/2024_11_21_015703_create_projects_table.php
-    - database/migrations/2024_11_21_015704_create_tasks_table.php
-    - database/migrations/2024_11_21_015705_create_timesheets_table.php
-    - database/migrations/2024_11_21_015706_create_coords_table.php
-    - database/migrations/2024_11_21_015707_create_city_user_table.php
-    - database/migrations/2024_11_21_015708_create_road_square_table.php
-    - database/migrations/2024_11_21_015709_create_square_track_table.php
-    - database/migrations/2024_11_21_015710_create_media_tag_table.php
+    - database/factories/CronFactory.php
+    - database/migrations/2024_11_21_152903_create_cities_table.php
+    - database/migrations/2024_11_21_152904_create_buildings_table.php
+    - database/migrations/2024_11_21_152905_create_squares_table.php
+    - database/migrations/2024_11_21_152906_create_square_images_table.php
+    - database/migrations/2024_11_21_152907_create_roads_table.php
+    - database/migrations/2024_11_21_152908_create_tracks_table.php
+    - database/migrations/2024_11_21_152909_create_settings_table.php
+    - database/migrations/2024_11_21_152910_create_invites_table.php
+    - database/migrations/2024_11_21_152911_create_repos_table.php
+    - database/migrations/2024_11_21_152912_create_colours_table.php
+    - database/migrations/2024_11_21_152913_create_externals_table.php
+    - database/migrations/2024_11_21_152914_create_media_table.php
+    - database/migrations/2024_11_21_152915_create_media_downloads_table.php
+    - database/migrations/2024_11_21_152916_create_tags_table.php
+    - database/migrations/2024_11_21_152917_create_events_table.php
+    - database/migrations/2024_11_21_152918_create_participants_table.php
+    - database/migrations/2024_11_21_152919_create_countries_table.php
+    - database/migrations/2024_11_21_152920_create_stores_table.php
+    - database/migrations/2024_11_21_152921_create_panels_table.php
+    - database/migrations/2024_11_21_152922_create_qrs_table.php
+    - database/migrations/2024_11_21_152923_create_qr_logs_table.php
+    - database/migrations/2024_11_21_152924_create_schedules_table.php
+    - database/migrations/2024_11_21_152925_create_schedule_types_table.php
+    - database/migrations/2024_11_21_152926_create_schedule_logs_table.php
+    - database/migrations/2024_11_21_152927_create_projects_table.php
+    - database/migrations/2024_11_21_152928_create_tasks_table.php
+    - database/migrations/2024_11_21_152929_create_timesheets_table.php
+    - database/migrations/2024_11_21_152930_create_coords_table.php
+    - database/migrations/2024_11_21_152931_create_crons_table.php
+    - database/migrations/2024_11_21_152932_create_city_user_table.php
+    - database/migrations/2024_11_21_152933_create_road_square_table.php
+    - database/migrations/2024_11_21_152934_create_square_track_table.php
+    - database/migrations/2024_11_21_152935_create_media_tag_table.php
     - app/Models/City.php
     - app/Models/Building.php
     - app/Models/Square.php
@@ -87,6 +89,7 @@ created:
     - app/Models/Task.php
     - app/Models/Timesheet.php
     - app/Models/Coord.php
+    - app/Models/Cron.php
 models:
     User: { first: string, last: string, email: string, email_verified_at: 'timestamp nullable', github_username: 'string nullable', github_access_token: 'string nullable', url: 'string nullable', reset_hash: 'string nullable', verify_hash: 'string nullable', avatar: 'longtext nullable', password: 'string nullable', session_id: 'string nullable', city_id: 'biginteger unsigned nullable', admin: boolean, remember_token: 'string:100 nullable' }
     City: { name: string, url: 'string nullable', width: 'integer nullable', height: 'integer nullable', image: 'longtext nullable', date_at: timestamp, date_multiplier: 'integer default:1', user_id: integer, softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: User, belongsToMany: User } }
@@ -110,10 +113,11 @@ models:
     Panel: { value: 'string nullable', cartridge: 'enum:red,blue,brown,yellow nullable', port: 'enum:a,b,c,d,1,2,3,4', city_id: integer, timestamps: timestamps, relationships: { belongsTo: City } }
     Qr: { name: string, hash: string, url: 'string nullable', image: 'longtext nullable', city_id: integer, timestamps: timestamps, relationships: { hasMany: QrLog, belongsTo: City } }
     QrLog: { name: string, hash: string, url: 'string nullable', qr_id: 'intenger nullable', timestamps: timestamps, relationships: { belongsTo: Qr } }
-    Schedule: { name: string, minute: string, city_id: integer, type_id: integer, timestamps: timestamps, relationships: { belongsTo: City, hasMany: ScheduleLog } }
-    ScheduleType: { name: string, filename: string, relationships: { hasMany: Schedule } }
+    Schedule: { minute: string, city_id: integer, type_id: integer, timestamps: timestamps, relationships: { belongsTo: City, hasMany: ScheduleLog } }
+    ScheduleType: { name: string, length: string, filename: string, relationships: { hasMany: Schedule } }
     ScheduleLog: { name: string, script: text, schedule_id: integer, city_id: integer, played_at: datetime, timestamps: timestamps, relationships: { belongsTo: 'Schedule,City' } }
     Project: { project_name: string, github: 'string nullable', description: text, timestamps: timestamps }
     Task: { task_name: string, description: text, project_id: integer, timestamps: timestamps, relationships: { belongsTo: Project } }
     Timesheet: { date: date, hours_worked: 'decimal:4,2', description: 'TEXT,', user_id: integer, project_id: integer, task_id: integer, timestamps: timestamps, relationships: { belongsTo: 'User,Project,Task' } }
     Coord: { type: 'enum:car,train', x: integer, 'y': integer, city_id: integer, timestamps: timestamps, relationships: { belongsTo: City } }
+    Cron: { name: string, url: string, when: string }

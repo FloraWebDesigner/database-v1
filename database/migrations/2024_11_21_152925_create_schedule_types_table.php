@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('schedule_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('length');
             $table->string('filename');
             $table->timestamps();
         });

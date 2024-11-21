@@ -208,7 +208,6 @@ models:
       belongsTo: Qr
 
   Schedule:
-    name: string
     minute: string
     city_id: integer
     type_id: integer
@@ -219,6 +218,7 @@ models:
 
   ScheduleType:
     name: string
+    length: string
     filename: string
     relationships:
       hasMany: Schedule
@@ -266,3 +266,8 @@ models:
     timestamps: true
     relationships:
       belongsTo: City
+
+  Cron:
+    name: string
+    url: string
+    when: string

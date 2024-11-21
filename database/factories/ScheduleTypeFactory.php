@@ -22,6 +22,7 @@ class ScheduleTypeFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'length' => $this->faker->word(),
             'filename' => $this->faker->word(),
         ];
     }

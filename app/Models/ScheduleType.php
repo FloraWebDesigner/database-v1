@@ -17,6 +17,7 @@ class ScheduleType extends Model
      */
     protected $fillable = [
         'name',
+        'length',
         'filename',
     ];
 
