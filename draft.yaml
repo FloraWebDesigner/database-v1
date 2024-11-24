@@ -225,7 +225,7 @@ models:
 
   ScheduleLog:
     name: string
-    script: text
+    script: text nullable
     schedule_id: integer
     city_id: integer
     play_at: datetime

@@ -21,6 +21,8 @@ use App\Models\Schedule;
 use App\Models\ScheduleType;
 use App\Models\ScheduleLog;
 
+use App\Models\Cron;
+
 use Carbon\Carbon;
 
 
@@ -266,22 +268,31 @@ class DatabaseSeeder extends Seeder
 
         $schedules = array(
             array('minute' => '00', 'city_id' => 1, 'type_id' => 4), // Clock - 1
-            array('minute' => '01', 'city_id' => 1, 'type_id' => 3), // Bricksum - 3
-            array('minute' => '02', 'city_id' => 1, 'type_id' => 2), // City
+            array('minute' => '01', 'city_id' => 1, 'type_id' => 1), // Bricksum - 3
+            array('minute' => '02', 'city_id' => 1, 'type_id' => 3), // City
+            array('minute' => '04', 'city_id' => 1, 'type_id' => 6), // Commercial - 1
             array('minute' => '05', 'city_id' => 1, 'type_id' => 13), // Traffic - 1
-            array('minute' => '06', 'city_id' => 1, 'type_id' => 6), // Commercial - 1
-            array('minute' => '07', 'city_id' => 1, 'type_id' => 12), // Brix - 1
+            array('minute' => '07', 'city_id' => 1, 'type_id' => 2), // Brix - 1
             array('minute' => '08', 'city_id' => 1, 'type_id' => 10), // Place - 2
-            array('minute' => '10', 'city_id' => 1, 'type_id' => 7), // Colour - 2
-            array('minute' => '11', 'city_id' => 1, 'type_id' => 10), // Crypto
-            array('minute' => '12', 'city_id' => 1, 'type_id' => 6), // QR Code - 1
+            array('minute' => '09', 'city_id' => 1, 'type_id' => 11), // Place - 2
+            array('minute' => '10', 'city_id' => 1, 'type_id' => 5), // Colour - 2
+            array('minute' => '11', 'city_id' => 1, 'type_id' => 8), // Crypto
+            array('minute' => '12', 'city_id' => 1, 'type_id' => 12), // QR Code - 1
             array('minute' => '13', 'city_id' => 1, 'type_id' => 6), // Commercial - 1
-            array('minute' => '14', 'city_id' => 1, 'type_id' => 11), // Panel
+            array('minute' => '14', 'city_id' => 1, 'type_id' => 7), // Panel
         );
 
         foreach ($schedules as $schedule) {
             Schedule::create($schedule);
         }
+
+        // **************************************************
+        // Crom Jobs
+        $user = Cron::factory()->create([
+            'name' => 'Queue Next 60 Minutes of Radio',
+            'when' => '1',
+            'url' => '/api/radio/log/{city}',
+        ]);
         
         // **************************************************
         // Maps

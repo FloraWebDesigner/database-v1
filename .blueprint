@@ -1,2 +1,123 @@
+created:
+    - database/factories/CityFactory.php
+    - database/factories/BuildingFactory.php
+    - database/factories/SquareFactory.php
+    - database/factories/SquareImageFactory.php
+    - database/factories/RoadFactory.php
+    - database/factories/TrackFactory.php
+    - database/factories/SettingFactory.php
+    - database/factories/InviteFactory.php
+    - database/factories/RepoFactory.php
+    - database/factories/ColourFactory.php
+    - database/factories/ExternalFactory.php
+    - database/factories/MediaFactory.php
+    - database/factories/MediaDownloadFactory.php
+    - database/factories/TagFactory.php
+    - database/factories/EventFactory.php
+    - database/factories/ParticipantFactory.php
+    - database/factories/CountryFactory.php
+    - database/factories/StoreFactory.php
+    - database/factories/PanelFactory.php
+    - database/factories/QrFactory.php
+    - database/factories/QrLogFactory.php
+    - database/factories/ScheduleFactory.php
+    - database/factories/ScheduleTypeFactory.php
+    - database/factories/ScheduleLogFactory.php
+    - database/factories/ProjectFactory.php
+    - database/factories/TaskFactory.php
+    - database/factories/TimesheetFactory.php
+    - database/factories/CoordFactory.php
+    - database/factories/CronFactory.php
+    - database/migrations/2024_11_24_005854_create_cities_table.php
+    - database/migrations/2024_11_24_005855_create_buildings_table.php
+    - database/migrations/2024_11_24_005856_create_squares_table.php
+    - database/migrations/2024_11_24_005857_create_square_images_table.php
+    - database/migrations/2024_11_24_005858_create_roads_table.php
+    - database/migrations/2024_11_24_005859_create_tracks_table.php
+    - database/migrations/2024_11_24_005900_create_settings_table.php
+    - database/migrations/2024_11_24_005901_create_invites_table.php
+    - database/migrations/2024_11_24_005902_create_repos_table.php
+    - database/migrations/2024_11_24_005903_create_colours_table.php
+    - database/migrations/2024_11_24_005904_create_externals_table.php
+    - database/migrations/2024_11_24_005905_create_media_table.php
+    - database/migrations/2024_11_24_005906_create_media_downloads_table.php
+    - database/migrations/2024_11_24_005907_create_tags_table.php
+    - database/migrations/2024_11_24_005908_create_events_table.php
+    - database/migrations/2024_11_24_005909_create_participants_table.php
+    - database/migrations/2024_11_24_005910_create_countries_table.php
+    - database/migrations/2024_11_24_005911_create_stores_table.php
+    - database/migrations/2024_11_24_005912_create_panels_table.php
+    - database/migrations/2024_11_24_005913_create_qrs_table.php
+    - database/migrations/2024_11_24_005914_create_qr_logs_table.php
+    - database/migrations/2024_11_24_005915_create_schedules_table.php
+    - database/migrations/2024_11_24_005916_create_schedule_types_table.php
+    - database/migrations/2024_11_24_005917_create_schedule_logs_table.php
+    - database/migrations/2024_11_24_005918_create_projects_table.php
+    - database/migrations/2024_11_24_005919_create_tasks_table.php
+    - database/migrations/2024_11_24_005920_create_timesheets_table.php
+    - database/migrations/2024_11_24_005921_create_coords_table.php
+    - database/migrations/2024_11_24_005922_create_crons_table.php
+    - database/migrations/2024_11_24_005923_create_city_user_table.php
+    - database/migrations/2024_11_24_005924_create_road_square_table.php
+    - database/migrations/2024_11_24_005925_create_square_track_table.php
+    - database/migrations/2024_11_24_005926_create_media_tag_table.php
+    - app/Models/City.php
+    - app/Models/Building.php
+    - app/Models/Square.php
+    - app/Models/SquareImage.php
+    - app/Models/Road.php
+    - app/Models/Track.php
+    - app/Models/Setting.php
+    - app/Models/Invite.php
+    - app/Models/Repo.php
+    - app/Models/Colour.php
+    - app/Models/External.php
+    - app/Models/Media.php
+    - app/Models/MediaDownload.php
+    - app/Models/Tag.php
+    - app/Models/Event.php
+    - app/Models/Participant.php
+    - app/Models/Country.php
+    - app/Models/Store.php
+    - app/Models/Panel.php
+    - app/Models/Qr.php
+    - app/Models/QrLog.php
+    - app/Models/Schedule.php
+    - app/Models/ScheduleType.php
+    - app/Models/ScheduleLog.php
+    - app/Models/Project.php
+    - app/Models/Task.php
+    - app/Models/Timesheet.php
+    - app/Models/Coord.php
+    - app/Models/Cron.php
 models:
     User: { first: string, last: string, email: string, email_verified_at: 'timestamp nullable', github_username: 'string nullable', github_access_token: 'string nullable', url: 'string nullable', reset_hash: 'string nullable', verify_hash: 'string nullable', avatar: 'longtext nullable', password: 'string nullable', session_id: 'string nullable', city_id: 'biginteger unsigned nullable', admin: boolean, remember_token: 'string:100 nullable' }
+    City: { name: string, url: 'string nullable', width: 'integer nullable', height: 'integer nullable', image: 'longtext nullable', date_at: timestamp, date_multiplier: 'integer default:1', user_id: integer, softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: User, belongsToMany: User } }
+    Building: { name: string, set: 'string nullable', colour: 'string nullable', number: 'integer nullable', road_id: 'integer nullable', city_id: integer, timestamps: timestamps, relationships: { belongsTo: 'City,Road', hasMany: Square } }
+    Square: { x: integer, 'y': integer, road_rules: 'string nullable', track_rules: 'string nullable', type: 'enum:ground,water default:ground', building_id: 'integer default:0', city_id: integer, relationships: { belongsTo: 'City,Building', hasMany: SquareImage, belongsToMany: 'Road,Track' } }
+    SquareImage: { square_id: integer, direction: 'enum:north,east,south,west', image: 'longtext nullable', relationships: { belongsTo: Square } }
+    Road: { name: string, city_id: integer, timestamps: timestamps, relationships: { belongsToMany: Square, belongsTo: City } }
+    Track: { name: string, city_id: integer, timestamps: timestamps, relationships: { belongsToMany: Square, belongsTo: City } }
+    Setting: { name: string, value: text, softdeletes: softDeletes, timestamps: timestamps }
+    Invite: { email: string, invite_hash: 'string nullable', city_id: integer, user_id: integer, timestamps: timestamps, relationships: { belongsTo: 'City,User' } }
+    Repo: { name: string, owner: 'string nullable', pull_requests: 'integer default:0', error_readme_exists: 'boolean default:0', error_readme_contents: 'boolean default:0', error_favicon_exists: 'boolean default:0', error_gitignore_exists: 'boolean default:0', error_gitignore_contents: 'boolean default:0', error_protected: 'boolean default:0', error_description: 'boolean default:0', error_topics: 'boolean default:0', error_comments: 'text nullable', error_count: 'integer default:0', timestamps: timestamps }
+    Colour: { name: string, rgb: string, is_trans: string, rebrickable_id: 'integer nullable', timestamps: timestamps, relationships: { hasMany: External } }
+    External: { name: string, source: 'enum:brickowl,bricklink,ldraw,lego,peeron', colour_id: integer, timestamps: timestamps, relationships: { belongsTo: Colour } }
+    Media: { name: string, approved: 'boolean default:0', type: 'enum:audio,image,video', user_id: 'integer nullable', city_id: 'integer nullable', google_id: 'string nullable', softdeletes: softDeletes, timestamps: timestamps, relationships: { belongsTo: 'User,City', belongsToMany: Tag } }
+    MediaDownload: { media_id: integer, user_id: 'integer nullable', timestamps: timestamps, relationships: { belongsTo: 'User,Media' } }
+    Tag: { name: string, relationships: { belongsToMany: Media } }
+    Event: { event_name: string, start_date: datetime, end_date: datetime, description: text, photo: 'longtext nullable', organizer: string, location: string, detail_description: text, max_capacity: integer, tickets_bought: integer, timestamps: timestamps, relationships: { hasMany: Participant } }
+    Participant: { first_name: string, last_name: string, email: string, event_id: 'integer nullable', indexes: [{ unique: 'email,event_id' }], timestamps: timestamps, relationships: { belongsTo: Event } }
+    Country: { country_code: string, long_name: string, timestamps: timestamps, relationships: { hasMany: Store } }
+    Store: { name: string, country_id: 'integer nullable', store_id: string, image: 'longtext nullable', json: longtext, timestamps: timestamps, relationships: { belongsTo: Country } }
+    Panel: { value: 'string nullable', cartridge: 'enum:red,blue,brown,yellow nullable', port: 'enum:a,b,c,d,1,2,3,4', city_id: integer, timestamps: timestamps, relationships: { belongsTo: City } }
+    Qr: { name: string, hash: string, url: 'string nullable', image: 'longtext nullable', city_id: integer, timestamps: timestamps, relationships: { hasMany: QrLog, belongsTo: City } }
+    QrLog: { name: string, hash: string, url: 'string nullable', qr_id: 'intenger nullable', timestamps: timestamps, relationships: { belongsTo: Qr } }
+    Schedule: { minute: string, city_id: integer, type_id: integer, timestamps: timestamps, relationships: { belongsTo: City, hasMany: ScheduleLog } }
+    ScheduleType: { name: string, length: string, filename: string, relationships: { hasMany: Schedule } }
+    ScheduleLog: { name: string, script: 'text nullable', schedule_id: integer, city_id: integer, play_at: datetime, status: 'enum:queued,played default:queued', timestamps: timestamps, relationships: { belongsTo: 'Schedule,City' } }
+    Project: { project_name: string, github: 'string nullable', description: text, timestamps: timestamps }
+    Task: { task_name: string, description: text, project_id: integer, timestamps: timestamps, relationships: { belongsTo: Project } }
+    Timesheet: { date: date, hours_worked: 'decimal:4,2', description: 'TEXT,', user_id: integer, project_id: integer, task_id: integer, timestamps: timestamps, relationships: { belongsTo: 'User,Project,Task' } }
+    Coord: { type: 'enum:car,train', x: integer, 'y': integer, city_id: integer, timestamps: timestamps, relationships: { belongsTo: City } }
+    Cron: { name: string, url: string, when: string }
