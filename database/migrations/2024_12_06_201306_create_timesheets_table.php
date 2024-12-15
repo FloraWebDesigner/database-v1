@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('timesheets', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->decimal('hours_worked', 4, 2);
+            $table->decimal('hours', 4, 2);
             $table->string('description');
             $table->foreignId('user_id');
-            $table->foreignId('project_id');
-            $table->foreignId('task_id');
+            $table->foreignId('application_id');
             $table->timestamps();
         });
     }

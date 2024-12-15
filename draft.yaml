@@ -234,30 +234,24 @@ models:
     relationships:
       belongsTo: Schedule,City
 
-  Project:
-    project_name: string
+  Application:
+    name: string
     github: string nullable
+    url: string nullable
     description: text
-    timestamps: true
-
-  Task:
-    task_name: string
-    description: text
-    project_id: integer
     timestamps: true
     relationships:
-      belongsTo: Project
+      hasMany: Timesheet
 
   Timesheet:
     date: date
-    hours_worked: decimal:4,2
-    description: TEXT,
+    hours: decimal:4,2
+    description: text,
     user_id: integer
-    project_id: integer
-    task_id: integer
+    application_id: integer
     timestamps: true
     relationships:
-      belongsTo: User,Project,Task
+      belongsTo: User,Application
 
   Coord:
     type: enum:car,train

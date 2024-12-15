@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Task extends Model
+class Application extends Model
 {
     use HasFactory;
 
@@ -16,9 +16,10 @@ class Task extends Model
      * @var array
      */
     protected $fillable = [
-        'task_name',
+        'name',
+        'github',
+        'url',
         'description',
-        'project_id',
     ];
 
     /**
@@ -28,11 +29,10 @@ class Task extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'project_id' => 'integer',
     ];
 
-    public function project(): BelongsTo
+    public function timesheets(): HasMany
     {
-        return $this->belongsTo(Project::class);
+        return $this->hasMany(Timesheet::class);
     }
 }

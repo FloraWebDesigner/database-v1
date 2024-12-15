@@ -17,11 +17,10 @@ class Timesheet extends Model
      */
     protected $fillable = [
         'date',
-        'hours_worked',
+        'hours',
         'description',
         'user_id',
-        'project_id',
-        'task_id',
+        'application_id',
     ];
 
     /**
@@ -32,10 +31,9 @@ class Timesheet extends Model
     protected $casts = [
         'id' => 'integer',
         'date' => 'date',
-        'hours_worked' => 'decimal:2',
+        'hours' => 'decimal:2',
         'user_id' => 'integer',
-        'project_id' => 'integer',
-        'task_id' => 'integer',
+        'application_id' => 'integer',
     ];
 
     public function user(): BelongsTo
@@ -43,13 +41,8 @@ class Timesheet extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function project(): BelongsTo
+    public function application(): BelongsTo
     {
-        return $this->belongsTo(Project::class);
-    }
-
-    public function task(): BelongsTo
-    {
-        return $this->belongsTo(Task::class);
+        return $this->belongsTo(Application::class);
     }
 }
