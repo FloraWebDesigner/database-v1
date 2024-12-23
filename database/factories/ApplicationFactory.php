@@ -25,6 +25,7 @@ class ApplicationFactory extends Factory
             'github' => $this->faker->word(),
             'url' => $this->faker->url(),
             'description' => $this->faker->text(),
+            'image' => $this->faker->text(),
         ];
     }
 }

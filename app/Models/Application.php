@@ -20,6 +20,7 @@ class Application extends Model
         'github',
         'url',
         'description',
+        'image',
     ];
 
     /**

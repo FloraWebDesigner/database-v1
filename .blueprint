@@ -27,38 +27,38 @@ created:
     - database/factories/TimesheetFactory.php
     - database/factories/CoordFactory.php
     - database/factories/CronFactory.php
-    - database/migrations/2024_12_06_201241_create_cities_table.php
-    - database/migrations/2024_12_06_201242_create_buildings_table.php
-    - database/migrations/2024_12_06_201243_create_squares_table.php
-    - database/migrations/2024_12_06_201244_create_square_images_table.php
-    - database/migrations/2024_12_06_201245_create_roads_table.php
-    - database/migrations/2024_12_06_201246_create_tracks_table.php
-    - database/migrations/2024_12_06_201247_create_settings_table.php
-    - database/migrations/2024_12_06_201248_create_invites_table.php
-    - database/migrations/2024_12_06_201249_create_repos_table.php
-    - database/migrations/2024_12_06_201250_create_colours_table.php
-    - database/migrations/2024_12_06_201251_create_externals_table.php
-    - database/migrations/2024_12_06_201252_create_media_table.php
-    - database/migrations/2024_12_06_201253_create_media_downloads_table.php
-    - database/migrations/2024_12_06_201254_create_tags_table.php
-    - database/migrations/2024_12_06_201255_create_events_table.php
-    - database/migrations/2024_12_06_201256_create_participants_table.php
-    - database/migrations/2024_12_06_201257_create_countries_table.php
-    - database/migrations/2024_12_06_201258_create_stores_table.php
-    - database/migrations/2024_12_06_201259_create_panels_table.php
-    - database/migrations/2024_12_06_201300_create_qrs_table.php
-    - database/migrations/2024_12_06_201301_create_qr_logs_table.php
-    - database/migrations/2024_12_06_201302_create_schedules_table.php
-    - database/migrations/2024_12_06_201303_create_schedule_types_table.php
-    - database/migrations/2024_12_06_201304_create_schedule_logs_table.php
-    - database/migrations/2024_12_06_201305_create_applications_table.php
-    - database/migrations/2024_12_06_201306_create_timesheets_table.php
-    - database/migrations/2024_12_06_201307_create_coords_table.php
-    - database/migrations/2024_12_06_201308_create_crons_table.php
-    - database/migrations/2024_12_06_201309_create_city_user_table.php
-    - database/migrations/2024_12_06_201310_create_road_square_table.php
-    - database/migrations/2024_12_06_201311_create_square_track_table.php
-    - database/migrations/2024_12_06_201312_create_media_tag_table.php
+    - database/migrations/2024_12_23_040814_create_cities_table.php
+    - database/migrations/2024_12_23_040815_create_buildings_table.php
+    - database/migrations/2024_12_23_040816_create_squares_table.php
+    - database/migrations/2024_12_23_040817_create_square_images_table.php
+    - database/migrations/2024_12_23_040818_create_roads_table.php
+    - database/migrations/2024_12_23_040819_create_tracks_table.php
+    - database/migrations/2024_12_23_040820_create_settings_table.php
+    - database/migrations/2024_12_23_040821_create_invites_table.php
+    - database/migrations/2024_12_23_040822_create_repos_table.php
+    - database/migrations/2024_12_23_040823_create_colours_table.php
+    - database/migrations/2024_12_23_040824_create_externals_table.php
+    - database/migrations/2024_12_23_040825_create_media_table.php
+    - database/migrations/2024_12_23_040826_create_media_downloads_table.php
+    - database/migrations/2024_12_23_040827_create_tags_table.php
+    - database/migrations/2024_12_23_040828_create_events_table.php
+    - database/migrations/2024_12_23_040829_create_participants_table.php
+    - database/migrations/2024_12_23_040830_create_countries_table.php
+    - database/migrations/2024_12_23_040831_create_stores_table.php
+    - database/migrations/2024_12_23_040832_create_panels_table.php
+    - database/migrations/2024_12_23_040833_create_qrs_table.php
+    - database/migrations/2024_12_23_040834_create_qr_logs_table.php
+    - database/migrations/2024_12_23_040835_create_schedules_table.php
+    - database/migrations/2024_12_23_040836_create_schedule_types_table.php
+    - database/migrations/2024_12_23_040837_create_schedule_logs_table.php
+    - database/migrations/2024_12_23_040838_create_applications_table.php
+    - database/migrations/2024_12_23_040839_create_timesheets_table.php
+    - database/migrations/2024_12_23_040840_create_coords_table.php
+    - database/migrations/2024_12_23_040841_create_crons_table.php
+    - database/migrations/2024_12_23_040842_create_city_user_table.php
+    - database/migrations/2024_12_23_040843_create_road_square_table.php
+    - database/migrations/2024_12_23_040844_create_square_track_table.php
+    - database/migrations/2024_12_23_040845_create_media_tag_table.php
     - app/Models/City.php
     - app/Models/Building.php
     - app/Models/Square.php
@@ -113,7 +113,7 @@ models:
     Schedule: { minute: string, city_id: integer, type_id: integer, timestamps: timestamps, relationships: { belongsTo: City, hasMany: ScheduleLog } }
     ScheduleType: { name: string, length: string, filename: string, relationships: { hasMany: Schedule } }
     ScheduleLog: { name: string, script: 'text nullable', schedule_id: integer, city_id: integer, play_at: datetime, status: 'enum:queued,played default:queued', timestamps: timestamps, relationships: { belongsTo: 'Schedule,City' } }
-    Application: { name: string, github: 'string nullable', url: 'string nullable', description: text, timestamps: timestamps, relationships: { hasMany: Timesheet } }
+    Application: { name: string, github: 'string nullable', url: 'string nullable', description: text, image: 'longtext nullable', timestamps: timestamps, relationships: { hasMany: Timesheet } }
     Timesheet: { date: date, hours: 'decimal:4,2', description: 'text,', user_id: integer, application_id: integer, timestamps: timestamps, relationships: { belongsTo: 'User,Application' } }
     Coord: { type: 'enum:car,train', x: integer, 'y': integer, city_id: integer, timestamps: timestamps, relationships: { belongsTo: City } }
     Cron: { name: string, url: string, when: string }
