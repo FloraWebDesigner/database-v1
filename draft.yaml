@@ -239,6 +239,7 @@ models:
     github: string nullable
     url: string nullable
     description: text
+    image: longtext nullable
     timestamps: true
     relationships:
       hasMany: Timesheet
