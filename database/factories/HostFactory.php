@@ -6,16 +6,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\City;
 use App\Models\Host;
-use App\Models\Schedule;
 
-class ScheduleFactory extends Factory
+class HostFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Schedule::class;
+    protected $model = Host::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +22,10 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            'minute' => $this->faker->word(),
+            'name' => $this->faker->name(),
+            'gender' => $this->faker->word(),
+            'prompt' => $this->faker->text(),
             'city_id' => City::factory(),
-            'type_id' => $this->faker->numberBetween(-10000, 10000),
-            'host_id' => Host::factory(),
         ];
     }
 }

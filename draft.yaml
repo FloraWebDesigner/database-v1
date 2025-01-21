@@ -211,10 +211,22 @@ models:
     minute: string
     city_id: integer
     type_id: integer
+    host_id: integer
+    timestamps: true
+    relationships:
+      belongsTo: City,Host
+      hasMany: ScheduleLog
+  
+  Host:
+    name: string
+    gender: string
+    voice: string
+    prompt: text
+    city_id: integer
     timestamps: true
     relationships:
       belongsTo: City
-      hasMany: ScheduleLog
+      hasMany: Schedule
 
   ScheduleType:
     name: string
