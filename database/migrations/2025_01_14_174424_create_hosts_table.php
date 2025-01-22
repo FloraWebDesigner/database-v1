@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hosts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('gender');
+            // $table->string('gender');
             $table->string('voice');
             $table->text('prompt');
             $table->foreignId('city_id');

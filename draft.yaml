@@ -219,7 +219,7 @@ models:
   
   Host:
     name: string
-    gender: string
+    # gender: string
     voice: string
     prompt: text
     city_id: integer

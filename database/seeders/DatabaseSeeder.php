@@ -238,8 +238,8 @@ class DatabaseSeeder extends Seeder
         // **************************************************
         // Radio
         $hosts = array(
-            array('id' => 1, 'name' => 'Flora', 'gender' => 'female', 'voice' => 'fable','prompt' => 'Flora is cute.', 'city_id' =>1 ),
-            array('id' => 2, 'name' => 'Adam', 'gender' => 'male', 'voice' => 'alloy','prompt' => 'Adam is always angry.','city_id' =>1 ),
+            array('id' => 1, 'name' => 'Flora', 'voice' => 'fable','prompt' => 'Flora is cute.', 'city_id' =>1 ),
+            array('id' => 2, 'name' => 'Adam', 'voice' => 'alloy','prompt' => 'Adam is always angry.','city_id' =>1 ),
 
         );
 
