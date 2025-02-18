@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Schedule extends Model
+class Host extends Model
 {
     use HasFactory;
 
@@ -17,10 +17,10 @@ class Schedule extends Model
      * @var array
      */
     protected $fillable = [
-        'minute',
+        'name',
+        'gender',
+        'prompt',
         'city_id',
-        'type_id',
-        'host_id',
     ];
 
     /**
@@ -31,7 +31,6 @@ class Schedule extends Model
     protected $casts = [
         'id' => 'integer',
         'city_id' => 'integer',
-        'host_id' => 'integer',
     ];
 
     public function city(): BelongsTo
@@ -39,13 +38,8 @@ class Schedule extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function host(): BelongsTo
+    public function schedules(): HasMany
     {
-        return $this->belongsTo(Host::class);
-    }
-
-    public function scheduleLogs(): HasMany
-    {
-        return $this->hasMany(ScheduleLog::class);
+        return $this->hasMany(Schedule::class);
     }
 }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('minute');
             $table->foreignId('city_id');
             $table->integer('type_id');
+            $table->foreignId('host_id');
             $table->timestamps();
         });
     }

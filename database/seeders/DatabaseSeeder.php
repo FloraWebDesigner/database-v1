@@ -11,6 +11,7 @@ use App\Models\City;
 use App\Models\Cron;
 use App\Models\Panel;
 use App\Models\Qr;
+use App\Models\Host;
 use App\Models\Schedule;
 use App\Models\ScheduleType;
 use App\Models\ScheduleLog;
@@ -236,6 +237,16 @@ class DatabaseSeeder extends Seeder
         // **************************************************
         // **************************************************
         // Radio
+        $hosts = array(
+            array('id' => 1, 'name' => 'Flora', 'voice' => 'fable','prompt' => 'Flora is cute.', 'city_id' =>1 ),
+            array('id' => 2, 'name' => 'Adam', 'voice' => 'alloy','prompt' => 'Adam is always angry.','city_id' =>1 ),
+
+        );
+
+        foreach ($hosts as $host) {
+            Host::create($host);
+        }
+
         $types = array(
             array('id' => 1, 'name' => 'Bricksum Word of the Day', 'length' => 1, 'filename' => 'bricksum.php'),
             array('id' => 2, 'name' => 'Brix Feature', 'length' => 1, 'filename' => 'brix.php'),
@@ -258,19 +269,19 @@ class DatabaseSeeder extends Seeder
         }
 
         $schedules = array(
-            array('minute' => '00', 'city_id' => 1, 'type_id' => 4), // Clock - 1
-            array('minute' => '01', 'city_id' => 1, 'type_id' => 1), // Bricksum - 3
-            array('minute' => '02', 'city_id' => 1, 'type_id' => 3), // City
-            array('minute' => '04', 'city_id' => 1, 'type_id' => 6), // Commercial - 1
-            array('minute' => '05', 'city_id' => 1, 'type_id' => 13), // Traffic - 1
-            array('minute' => '07', 'city_id' => 1, 'type_id' => 2), // Brix - 1
-            array('minute' => '08', 'city_id' => 1, 'type_id' => 10), // Place - 2
-            array('minute' => '09', 'city_id' => 1, 'type_id' => 11), // Place - 2
-            array('minute' => '10', 'city_id' => 1, 'type_id' => 5), // Colour - 2
-            array('minute' => '11', 'city_id' => 1, 'type_id' => 8), // Crypto
-            array('minute' => '12', 'city_id' => 1, 'type_id' => 12), // QR Code - 1
-            array('minute' => '13', 'city_id' => 1, 'type_id' => 6), // Commercial - 1
-            array('minute' => '14', 'city_id' => 1, 'type_id' => 7), // Panel
+            array('minute' => '00', 'city_id' => 1, 'type_id' => 4, 'host_id' => 2),  // Clock - 1
+            array('minute' => '01', 'city_id' => 1, 'type_id' => 1, 'host_id' => 1), // Bricksum - 3
+            array('minute' => '02', 'city_id' => 1, 'type_id' => 3, 'host_id' => 1), // City
+            array('minute' => '04', 'city_id' => 1, 'type_id' => 6, 'host_id' => 1), // Commercial - 1
+            array('minute' => '05', 'city_id' => 1, 'type_id' => 13, 'host_id' => 1), // Traffic - 1
+            array('minute' => '07', 'city_id' => 1, 'type_id' => 2, 'host_id' => 1), // Brix - 1
+            array('minute' => '08', 'city_id' => 1, 'type_id' => 10, 'host_id' => 1), // Place - 2
+            array('minute' => '09', 'city_id' => 1, 'type_id' => 11, 'host_id' => 1), // Place - 2
+            array('minute' => '10', 'city_id' => 1, 'type_id' => 5, 'host_id' => 1), // Colour - 2
+            array('minute' => '11', 'city_id' => 1, 'type_id' => 8,'host_id' => 1), // Crypto
+            array('minute' => '12', 'city_id' => 1, 'type_id' => 12, 'host_id' => 1), // QR Code - 1
+            array('minute' => '13', 'city_id' => 1, 'type_id' => 6, 'host_id' => 1), // Commercial - 1
+            array('minute' => '14', 'city_id' => 1, 'type_id' => 7, 'host_id' => 2), // Panel
         );
 
         foreach ($schedules as $schedule) {
