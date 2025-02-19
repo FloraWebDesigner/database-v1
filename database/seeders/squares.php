@@ -1025,7 +1025,7 @@ $square = Square::factory()->create(["id" => "701","x" => "25","y" => "25","road
 $square->roads()->attach([8]);
 $square = Square::factory()->create(["id" => "702","x" => "26","y" => "25","road_rules" => "","track_rules" => "","type" => "ground","building_id" => "0","city_id" => "1","created_at" => "2024-11-16 22:52:36","updated_at" => "2024-11-16 22:52:36",]);
 $square->roads()->attach([8]);
-$square = Square::factory()->create(["id" => "703","x" => "0","y" => "26","road_rules" => "","track_rules" => "","type" => "ground","building_id" => "0","city_id" => "1","created_at" => "2024-11-16 22:52:36","updated_at" => "2024-11-16 22:52:36",]);
+$square = Square::factory()->create(["id" => "703","x" => "0","y" => "26","road_rules" => "n","track_rules" => "","type" => "ground","building_id" => "0","city_id" => "1","created_at" => "2024-11-16 22:52:36","updated_at" => "2024-11-16 22:52:36",]);
 $square->roads()->attach([3,5]);
 $square = Square::factory()->create(["id" => "704","x" => "1","y" => "26","road_rules" => "n","track_rules" => "","type" => "ground","building_id" => "0","city_id" => "1","created_at" => "2024-11-16 22:52:36","updated_at" => "2024-11-16 22:52:36",]);
 $square->roads()->attach([3,5]);
@@ -1080,7 +1080,7 @@ $square = Square::factory()->create(["id" => "728","x" => "25","y" => "26","road
 $square->roads()->attach([3,8]);
 $square = Square::factory()->create(["id" => "729","x" => "26","y" => "26","road_rules" => "","track_rules" => "","type" => "ground","building_id" => "0","city_id" => "1","created_at" => "2024-11-16 22:52:36","updated_at" => "2024-11-16 22:52:36",]);
 $square->roads()->attach([3,8]);
-$square = Square::factory()->create(["id" => "730","x" => "0","y" => "27","road_rules" => "","track_rules" => "","type" => "ground","building_id" => "0","city_id" => "1","created_at" => "2024-11-16 22:52:36","updated_at" => "2024-11-16 22:52:36",]);
+$square = Square::factory()->create(["id" => "730","x" => "0","y" => "27","road_rules" => "n","track_rules" => "","type" => "ground","building_id" => "0","city_id" => "1","created_at" => "2024-11-16 22:52:36","updated_at" => "2024-11-16 22:52:36",]);
 $square->roads()->attach([3,5]);
 $square = Square::factory()->create(["id" => "731","x" => "1","y" => "27","road_rules" => "","track_rules" => "","type" => "ground","building_id" => "0","city_id" => "1","created_at" => "2024-11-16 22:52:36","updated_at" => "2024-11-16 22:52:36",]);
 $square->roads()->attach([3,5]);

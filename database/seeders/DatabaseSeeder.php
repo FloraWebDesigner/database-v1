@@ -16,6 +16,8 @@ use App\Models\Schedule;
 use App\Models\ScheduleType;
 use App\Models\ScheduleLog;
 use App\Models\Setting;
+use App\Models\Square;
+use App\Models\SquareImage;
 use App\Models\Tag;
 use App\Models\User;
 
@@ -361,6 +363,43 @@ class DatabaseSeeder extends Seeder
         DB::unprepared(file_get_contents(__DIR__ . '/tags.sql'));
         DB::unprepared(file_get_contents(__DIR__ . '/media.sql'));
         DB::unprepared(file_get_contents(__DIR__ . '/media_tag.sql'));
+
+        // **************************************************
+        // **************************************************
+        // **************************************************
+        // Import Records from SQL Files
+        // Square Images
+        $files = array_diff(scandir(__DIR__.'/square_images'), array('.', '..'));
+
+        $directions = array(
+            'n' => 'north',
+            'e' => 'east',
+            's' => 'south',
+            'w' => 'west',
+        );
+
+        foreach($files as $file)
+        {
+            
+            $data = explode('-', $file);
+            // print_r($data);
+
+            $square = Square::where([
+                    'x' => $data[2],
+                    'y' => $data[3],
+                ])
+                ->first();
+            // print_r($square);
+
+            $image = [
+                'square_id' => $square->id, 
+                'direction' => $directions[$data[1]], 
+                'image' => 'data:image/jpeg;base64, '.base64_encode(file_get_contents(__DIR__.'/square_images/'.$file)), 
+            ];
+        
+            SquareImage::create($image);
+            
+        }
 
     }
 }
