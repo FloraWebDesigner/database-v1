@@ -22,9 +22,9 @@ class QrLogFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'hash' => $this->faker->word(),
-            'url' => $this->faker->url(),
+            'name' => fake()->name(),
+            'hash' => fake()->word(),
+            'url' => fake()->url(),
             'qr_id' => Qr::factory(),
         ];
     }

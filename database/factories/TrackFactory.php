@@ -22,7 +22,7 @@ class TrackFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
+            'name' => fake()->name(),
             'city_id' => City::factory(),
         ];
     }

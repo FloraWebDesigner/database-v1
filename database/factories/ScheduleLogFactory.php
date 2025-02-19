@@ -23,12 +23,12 @@ class ScheduleLogFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'script' => $this->faker->text(),
+            'name' => fake()->name(),
+            'script' => fake()->text(),
             'schedule_id' => Schedule::factory(),
             'city_id' => City::factory(),
-            'play_at' => $this->faker->dateTime(),
-            'status' => $this->faker->randomElement(["queued","played"]),
+            'play_at' => fake()->dateTime(),
+            'status' => fake()->randomElement(["queued","played"]),
         ];
     }
 }

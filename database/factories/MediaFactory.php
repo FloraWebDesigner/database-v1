@@ -23,12 +23,12 @@ class MediaFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'approved' => $this->faker->boolean(),
-            'type' => $this->faker->randomElement(["audio","image","video"]),
+            'name' => fake()->name(),
+            'approved' => fake()->boolean(),
+            'type' => fake()->randomElement(["audio","image","video"]),
             'user_id' => User::factory(),
             'city_id' => City::factory(),
-            'google_id' => $this->faker->word(),
+            'google_id' => fake()->word(),
         ];
     }
 }

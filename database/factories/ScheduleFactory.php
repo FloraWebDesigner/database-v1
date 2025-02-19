@@ -23,9 +23,9 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            'minute' => $this->faker->word(),
+            'minute' => fake()->word(),
             'city_id' => City::factory(),
-            'type_id' => $this->faker->numberBetween(-10000, 10000),
+            'type_id' => fake()->numberBetween(-10000, 10000),
             'host_id' => Host::factory(),
         ];
     }

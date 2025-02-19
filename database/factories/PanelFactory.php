@@ -22,9 +22,9 @@ class PanelFactory extends Factory
     public function definition(): array
     {
         return [
-            'value' => $this->faker->word(),
-            'cartridge' => $this->faker->randomElement(["red","blue","brown","yellow"]),
-            'port' => $this->faker->randomElement(["a","b","c","d","1","2","3","4"]),
+            'value' => fake()->word(),
+            'cartridge' => fake()->randomElement(["red","blue","brown","yellow"]),
+            'port' => fake()->randomElement(["a","b","c","d","1","2","3","4"]),
             'city_id' => City::factory(),
         ];
     }

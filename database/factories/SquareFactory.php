@@ -23,11 +23,11 @@ class SquareFactory extends Factory
     public function definition(): array
     {
         return [
-            'x' => $this->faker->numberBetween(-10000, 10000),
-            'y' => $this->faker->numberBetween(-10000, 10000),
-            'road_rules' => $this->faker->word(),
-            'track_rules' => $this->faker->word(),
-            'type' => $this->faker->randomElement(["ground","water"]),
+            'x' => fake()->numberBetween(-10000, 10000),
+            'y' => fake()->numberBetween(-10000, 10000),
+            'road_rules' => fake()->word(),
+            'track_rules' => fake()->word(),
+            'type' => fake()->randomElement(["ground","water"]),
             'building_id' => Building::factory(),
             'city_id' => City::factory(),
         ];

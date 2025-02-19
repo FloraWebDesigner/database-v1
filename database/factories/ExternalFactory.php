@@ -22,8 +22,8 @@ class ExternalFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'source' => $this->faker->randomElement(["brickowl","bricklink","ldraw","lego","peeron"]),
+            'name' => fake()->name(),
+            'source' => fake()->randomElement(["brickowl","bricklink","ldraw","lego","peeron"]),
             'colour_id' => Colour::factory(),
         ];
     }

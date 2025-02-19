@@ -22,9 +22,9 @@ class HostFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'gender' => $this->faker->word(),
-            'prompt' => $this->faker->text(),
+            'name' => fake()->name(),
+            'voice' => fake()->word(),
+            'prompt' => fake()->text(),
             'city_id' => City::factory(),
         ];
     }

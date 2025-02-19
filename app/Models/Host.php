@@ -18,7 +18,7 @@ class Host extends Model
      */
     protected $fillable = [
         'name',
-        'gender',
+        'voice',
         'prompt',
         'city_id',
     ];

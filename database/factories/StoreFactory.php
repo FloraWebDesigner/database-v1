@@ -22,11 +22,11 @@ class StoreFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
+            'name' => fake()->name(),
             'country_id' => Country::factory(),
-            'store_id' => $this->faker->word(),
-            'image' => $this->faker->text(),
-            'json' => $this->faker->text(),
+            'store_id' => fake()->word(),
+            'image' => fake()->text(),
+            'json' => fake()->text(),
         ];
     }
 }

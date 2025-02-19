@@ -21,11 +21,11 @@ class ApplicationFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'github' => $this->faker->word(),
-            'url' => $this->faker->url(),
-            'description' => $this->faker->text(),
-            'image' => $this->faker->text(),
+            'name' => fake()->name(),
+            'github' => fake()->word(),
+            'url' => fake()->url(),
+            'description' => fake()->text(),
+            'image' => fake()->text(),
         ];
     }
 }

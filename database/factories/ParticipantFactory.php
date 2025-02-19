@@ -22,9 +22,9 @@ class ParticipantFactory extends Factory
     public function definition(): array
     {
         return [
-            'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName(),
-            'email' => $this->faker->safeEmail(),
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'email' => fake()->safeEmail(),
             'event_id' => Event::factory(),
         ];
     }

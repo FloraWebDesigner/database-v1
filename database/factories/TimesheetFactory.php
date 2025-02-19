@@ -23,9 +23,9 @@ class TimesheetFactory extends Factory
     public function definition(): array
     {
         return [
-            'date' => $this->faker->date(),
-            'hours' => $this->faker->randomFloat(2, 0, 99.99),
-            'description' => $this->faker->text(),
+            'date' => fake()->date(),
+            'hours' => fake()->randomFloat(2, 0, 99.99),
+            'description' => fake()->text(),
             'user_id' => User::factory(),
             'application_id' => Application::factory(),
         ];

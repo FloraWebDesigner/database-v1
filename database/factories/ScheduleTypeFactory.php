@@ -21,9 +21,9 @@ class ScheduleTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'length' => $this->faker->word(),
-            'filename' => $this->faker->word(),
+            'name' => fake()->name(),
+            'length' => fake()->word(),
+            'filename' => fake()->word(),
         ];
     }
 }

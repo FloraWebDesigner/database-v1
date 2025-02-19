@@ -21,8 +21,8 @@ class CountryFactory extends Factory
     public function definition(): array
     {
         return [
-            'country_code' => $this->faker->word(),
-            'long_name' => $this->faker->word(),
+            'country_code' => fake()->word(),
+            'long_name' => fake()->word(),
         ];
     }
 }

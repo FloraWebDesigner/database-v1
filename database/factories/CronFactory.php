@@ -21,9 +21,9 @@ class CronFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'url' => $this->faker->url(),
-            'when' => $this->faker->word(),
+            'name' => fake()->name(),
+            'url' => fake()->url(),
+            'when' => fake()->word(),
         ];
     }
 }

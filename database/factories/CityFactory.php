@@ -22,13 +22,13 @@ class CityFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'url' => $this->faker->url(),
-            'width' => $this->faker->numberBetween(-10000, 10000),
-            'height' => $this->faker->numberBetween(-10000, 10000),
-            'image' => $this->faker->text(),
-            'date_at' => $this->faker->dateTime(),
-            'date_multiplier' => $this->faker->numberBetween(-10000, 10000),
+            'name' => fake()->name(),
+            'url' => fake()->url(),
+            'width' => fake()->numberBetween(-10000, 10000),
+            'height' => fake()->numberBetween(-10000, 10000),
+            'image' => fake()->text(),
+            'date_at' => fake()->dateTime(),
+            'date_multiplier' => fake()->numberBetween(-10000, 10000),
             'user_id' => User::factory(),
         ];
     }

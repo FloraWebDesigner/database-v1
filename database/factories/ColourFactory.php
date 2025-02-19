@@ -21,10 +21,10 @@ class ColourFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'rgb' => $this->faker->word(),
-            'is_trans' => $this->faker->word(),
-            'rebrickable_id' => $this->faker->numberBetween(-10000, 10000),
+            'name' => fake()->name(),
+            'rgb' => fake()->word(),
+            'is_trans' => fake()->word(),
+            'rebrickable_id' => fake()->numberBetween(-10000, 10000),
         ];
     }
 }

@@ -21,19 +21,19 @@ class RepoFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'owner' => $this->faker->word(),
-            'pull_requests' => $this->faker->numberBetween(-10000, 10000),
-            'error_readme_exists' => $this->faker->boolean(),
-            'error_readme_contents' => $this->faker->boolean(),
-            'error_favicon_exists' => $this->faker->boolean(),
-            'error_gitignore_exists' => $this->faker->boolean(),
-            'error_gitignore_contents' => $this->faker->boolean(),
-            'error_protected' => $this->faker->boolean(),
-            'error_description' => $this->faker->boolean(),
-            'error_topics' => $this->faker->boolean(),
-            'error_comments' => $this->faker->text(),
-            'error_count' => $this->faker->numberBetween(-10000, 10000),
+            'name' => fake()->name(),
+            'owner' => fake()->word(),
+            'pull_requests' => fake()->numberBetween(-10000, 10000),
+            'error_readme_exists' => fake()->boolean(),
+            'error_readme_contents' => fake()->boolean(),
+            'error_favicon_exists' => fake()->boolean(),
+            'error_gitignore_exists' => fake()->boolean(),
+            'error_gitignore_contents' => fake()->boolean(),
+            'error_protected' => fake()->boolean(),
+            'error_description' => fake()->boolean(),
+            'error_topics' => fake()->boolean(),
+            'error_comments' => fake()->text(),
+            'error_count' => fake()->numberBetween(-10000, 10000),
         ];
     }
 }

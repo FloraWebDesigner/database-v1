@@ -23,10 +23,10 @@ class BuildingFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'set' => $this->faker->word(),
-            'colour' => $this->faker->word(),
-            'number' => $this->faker->numberBetween(-10000, 10000),
+            'name' => fake()->name(),
+            'set' => fake()->word(),
+            'colour' => fake()->word(),
+            'number' => fake()->numberBetween(-10000, 10000),
             'road_id' => Road::factory(),
             'city_id' => City::factory(),
         ];

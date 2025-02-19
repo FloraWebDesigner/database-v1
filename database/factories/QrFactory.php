@@ -22,10 +22,10 @@ class QrFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'hash' => $this->faker->word(),
-            'url' => $this->faker->url(),
-            'image' => $this->faker->text(),
+            'name' => fake()->name(),
+            'hash' => fake()->word(),
+            'url' => fake()->url(),
+            'image' => fake()->text(),
             'city_id' => City::factory(),
         ];
     }

@@ -22,9 +22,9 @@ class CoordFactory extends Factory
     public function definition(): array
     {
         return [
-            'type' => $this->faker->randomElement(["car","train"]),
-            'x' => $this->faker->numberBetween(-10000, 10000),
-            'y' => $this->faker->numberBetween(-10000, 10000),
+            'type' => fake()->randomElement(["car","train"]),
+            'x' => fake()->numberBetween(-10000, 10000),
+            'y' => fake()->numberBetween(-10000, 10000),
             'city_id' => City::factory(),
         ];
     }

@@ -23,8 +23,8 @@ class InviteFactory extends Factory
     public function definition(): array
     {
         return [
-            'email' => $this->faker->safeEmail(),
-            'invite_hash' => $this->faker->word(),
+            'email' => fake()->safeEmail(),
+            'invite_hash' => fake()->word(),
             'city_id' => City::factory(),
             'user_id' => User::factory(),
         ];
