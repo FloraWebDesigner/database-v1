@@ -252,18 +252,18 @@ class DatabaseSeeder extends Seeder
         $types = array(
             array('id' => 1, 'name' => 'Bricksum Word of the Day', 'length' => 1, 'filename' => 'bricksum.php'),
             array('id' => 2, 'name' => 'Brix Feature', 'length' => 1, 'filename' => 'brix.php'),
-            array('id' => 3, 'name' => 'City Update', 'length' => 3, 'filename' => 'city.php'),
+            array('id' => 3, 'name' => 'City Update', 'length' => 2, 'filename' => 'city.php'),
             array('id' => 4, 'name' => 'Clock Update', 'length' => 1, 'filename' => 'clock.php'),
             array('id' => 5, 'name' => 'Colour of the Day', 'length' => 1, 'filename' => 'colour.php'),
             array('id' => 6, 'name' => 'Commercial', 'length' => 1, 'filename' => 'commercial.php'),
             array('id' => 7, 'name' => 'Control Panel Update', 'length' => 1, 'filename' => 'panel.php'),
-            array('id' => 8, 'name' => 'Crypto Update', 'length' => 2, 'filename' => 'crypto.php'),
-            array('id' => 9, 'name' => 'Featured Store', 'length' => 2, 'filename' => 'store.php'),
-            array('id' => 10, 'name' => 'News Story', 'length' => 2, 'filename' => 'news.php'),
+            array('id' => 8, 'name' => 'Crypto Update', 'length' => 1, 'filename' => 'crypto.php'),
+            array('id' => 9, 'name' => 'Featured Store', 'length' => 1, 'filename' => 'store.php'),
+            array('id' => 10, 'name' => 'News Story', 'length' => 1, 'filename' => 'news.php'),
             array('id' => 11, 'name' => 'Place of the Day', 'length' => 1, 'filename' => 'places.php'),
             array('id' => 12, 'name' => 'QR Code', 'length' => 1, 'filename' => 'qr.php'),
-            array('id' => 13, 'name' => 'Traffic', 'length' => 1, 'filename' => 'traffic.php'),
-            array('id' => 14, 'name' => 'Upcoming Events', 'length' => 2, 'filename' => 'events.php'),
+            array('id' => 13, 'name' => 'Traffic', 'length' => 2, 'filename' => 'traffic.php'),
+            array('id' => 14, 'name' => 'Upcoming Events', 'length' => 1, 'filename' => 'events.php'),
         );
 
         foreach ($types as $type) {
