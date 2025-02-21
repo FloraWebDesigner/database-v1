@@ -240,9 +240,8 @@ class DatabaseSeeder extends Seeder
         // **************************************************
         // Radio
         $hosts = array(
-            array('id' => 1, 'name' => 'Flora', 'voice' => 'fable','prompt' => 'Flora is cute.', 'city_id' =>1 ),
-            array('id' => 2, 'name' => 'Adam', 'voice' => 'alloy','prompt' => 'Adam is always angry.','city_id' =>1 ),
-
+            array('id' => 1, 'name' => 'Emmet Brickowski', 'voice' => 'alloy','prompt' => 'Emmet from the LEGO movie.', 'city_id' =>1 ),
+            array('id' => 2, 'name' => 'Wildstyle', 'voice' => 'nova','prompt' => 'Wildstyle from the LEGO movie.','city_id' =>1 ),
         );
 
         foreach ($hosts as $host) {
@@ -262,7 +261,7 @@ class DatabaseSeeder extends Seeder
             array('id' => 10, 'name' => 'News Story', 'length' => 1, 'filename' => 'news.php'),
             array('id' => 11, 'name' => 'Place of the Day', 'length' => 1, 'filename' => 'places.php'),
             array('id' => 12, 'name' => 'QR Code', 'length' => 1, 'filename' => 'qr.php'),
-            array('id' => 13, 'name' => 'Traffic', 'length' => 2, 'filename' => 'traffic.php'),
+            array('id' => 13, 'name' => 'Traffic', 'length' => 1, 'filename' => 'traffic.php'),
             array('id' => 14, 'name' => 'Upcoming Events', 'length' => 1, 'filename' => 'events.php'),
         );
 
@@ -271,19 +270,20 @@ class DatabaseSeeder extends Seeder
         }
 
         $schedules = array(
-            array('minute' => '00', 'city_id' => 1, 'type_id' => 4, 'host_id' => 2),  // Clock - 1
-            array('minute' => '01', 'city_id' => 1, 'type_id' => 1, 'host_id' => 1), // Bricksum - 3
-            array('minute' => '02', 'city_id' => 1, 'type_id' => 3, 'host_id' => 1), // City
-            array('minute' => '04', 'city_id' => 1, 'type_id' => 6, 'host_id' => 1), // Commercial - 1
-            array('minute' => '05', 'city_id' => 1, 'type_id' => 13, 'host_id' => 1), // Traffic - 1
-            array('minute' => '07', 'city_id' => 1, 'type_id' => 2, 'host_id' => 1), // Brix - 1
-            array('minute' => '08', 'city_id' => 1, 'type_id' => 10, 'host_id' => 1), // Place - 2
-            array('minute' => '09', 'city_id' => 1, 'type_id' => 11, 'host_id' => 1), // Place - 2
-            array('minute' => '10', 'city_id' => 1, 'type_id' => 5, 'host_id' => 1), // Colour - 2
-            array('minute' => '11', 'city_id' => 1, 'type_id' => 8,'host_id' => 1), // Crypto
-            array('minute' => '12', 'city_id' => 1, 'type_id' => 12, 'host_id' => 1), // QR Code - 1
-            array('minute' => '13', 'city_id' => 1, 'type_id' => 6, 'host_id' => 1), // Commercial - 1
-            array('minute' => '14', 'city_id' => 1, 'type_id' => 7, 'host_id' => 2), // Panel
+            array('minute' => '00', 'city_id' => 1, 'type_id' => 1, 'host_id' => 1),
+            array('minute' => '01', 'city_id' => 1, 'type_id' => 2, 'host_id' => 2),
+            array('minute' => '02', 'city_id' => 1, 'type_id' => 3, 'host_id' => 1),
+            array('minute' => '04', 'city_id' => 1, 'type_id' => 4, 'host_id' => 2),
+            array('minute' => '05', 'city_id' => 1, 'type_id' => 5, 'host_id' => 1),
+            array('minute' => '06', 'city_id' => 1, 'type_id' => 6, 'host_id' => 2),
+            array('minute' => '07', 'city_id' => 1, 'type_id' => 7, 'host_id' => 1),
+            array('minute' => '08', 'city_id' => 1, 'type_id' => 8, 'host_id' => 2),
+            array('minute' => '09', 'city_id' => 1, 'type_id' => 9, 'host_id' => 1),
+            array('minute' => '10', 'city_id' => 1, 'type_id' => 10,'host_id' => 2),
+            array('minute' => '11', 'city_id' => 1, 'type_id' => 11, 'host_id' => 1),
+            array('minute' => '12', 'city_id' => 1, 'type_id' => 12, 'host_id' => 2),
+            array('minute' => '13', 'city_id' => 1, 'type_id' => 13, 'host_id' => 1), 
+            array('minute' => '14', 'city_id' => 1, 'type_id' => 14, 'host_id' => 2), 
         );
 
         foreach ($schedules as $schedule) {
